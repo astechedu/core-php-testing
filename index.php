@@ -1,16 +1,17 @@
 <?php
 $csrf_token = bin2hex(random_bytes(32)); 
+
+include_once 'views/common/header.php';
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<form>
-		<input type="text" name="name">
-		<input type="hidden" name="token" value="<?php echo $csrf_token;?>">
-	</form>
-</body>
-</html>
+
+
+<section>
+	<div class="container bg-white-500 p-8">
+		Content............
+	</div>
+</section>
+
+
+
+<?php include_once 'views/common/footer.php'; ?>
