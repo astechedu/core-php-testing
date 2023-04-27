@@ -1,3 +1,6 @@
+<?php
+//session_start();
+?>
 <nav class="navbar navbar-expand-lg bg-primary">
   <div class="container-fluid">
 
@@ -9,7 +12,7 @@
       <a class="navbar-brand" href="#">PHP Auth</a>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="/pages/home.php">Home</a>
         </li>
 
         <li class="nav-item">
@@ -25,16 +28,28 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link disabled">Login</a>
+          <a class="nav-link" href="/auth/register.php">Register</a>
         </li>
 
+        <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) { ?>
         <li class="nav-item">
-          <a class="nav-link disabled">Register</a>
+          <a class="nav-link" href="/auth/logout.php">logout</a>
         </li>
-
+        <?php }else{ ?>
         <li class="nav-item">
-          <a class="nav-link disabled">Profile</a>
+          <a class="nav-link" href="index.php">login</a>
         </li>
+        <?php } ?>
+        
+        <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) { ?>
+        <li class="nav-item">
+          <a class="nav-link">Profile:
+               <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+                  echo "<strong>".$_SESSION['username']."</strong>";
+               } ?>
+          </a>
+        </li>
+       <?php } ?>
 
       </ul>
       </div>
