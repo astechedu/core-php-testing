@@ -7,7 +7,7 @@
 <?php include 'partials/navbar.php';?>
 </div>
 </header>
-
+ 
 <!-- carousel -->
 <?php include 'partials/carousel.php'; ?>
 
