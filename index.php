@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> 08ed1290c5911b178bbb5e631f65ebcbcdc656b8
 /*
 $request = $_SERVER['REQUEST_URI'];
 
@@ -82,6 +85,10 @@ $dir = pathinfo($_SERVER['PHP_SELF']);
 <?php include 'partials/footer.php'; ?>
 </footer>
 
+<<<<<<< HEAD
    
+=======
+
+>>>>>>> 08ed1290c5911b178bbb5e631f65ebcbcdc656b8
 
 

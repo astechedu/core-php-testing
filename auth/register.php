@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
 
 include '../databases/db.php';
@@ -36,6 +37,8 @@ if(isset($_POST['submit'])){
 ?>
 
 
+=======
+>>>>>>> 08ed1290c5911b178bbb5e631f65ebcbcdc656b8
 <!-- Header -->
 <header id="header">
 <?php include '../partials/header.php'; ?>
@@ -60,12 +63,20 @@ if(isset($_POST['submit'])){
 
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
+<<<<<<< HEAD
                 <form class="mx-1 mx-md-4" method="post" action="">
+=======
+                <form class="mx-1 mx-md-4">
+>>>>>>> 08ed1290c5911b178bbb5e631f65ebcbcdc656b8
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
+<<<<<<< HEAD
                       <input type="text" name="username" id="form3Example1c" class="form-control" />
+=======
+                      <input type="text" id="form3Example1c" class="form-control" />
+>>>>>>> 08ed1290c5911b178bbb5e631f65ebcbcdc656b8
                       <label class="form-label" for="form3Example1c">Your Name</label>
                     </div>
                   </div>
@@ -73,6 +84,7 @@ if(isset($_POST['submit'])){
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
+<<<<<<< HEAD
                       <input type="text" name="salary" id="form3Example3c" class="form-control" />
                       <label class="form-label" for="form3Example3c">Salary</label>
                     </div>
@@ -89,6 +101,8 @@ if(isset($_POST['submit'])){
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
+=======
+>>>>>>> 08ed1290c5911b178bbb5e631f65ebcbcdc656b8
                       <input type="email" id="form3Example3c" class="form-control" />
                       <label class="form-label" for="form3Example3c">Your Email</label>
                     </div>
@@ -101,7 +115,10 @@ if(isset($_POST['submit'])){
                       <label class="form-label" for="form3Example4c">Password</label>
                     </div>
                   </div>
+<<<<<<< HEAD
                  
+=======
+>>>>>>> 08ed1290c5911b178bbb5e631f65ebcbcdc656b8
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
@@ -111,8 +128,11 @@ if(isset($_POST['submit'])){
                     </div>
                   </div>
 
+<<<<<<< HEAD
                 -->
 
+=======
+>>>>>>> 08ed1290c5911b178bbb5e631f65ebcbcdc656b8
                   <div class="form-check d-flex justify-content-center mb-5">
                     <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
                     <label class="form-check-label" for="form2Example3">
@@ -120,6 +140,7 @@ if(isset($_POST['submit'])){
                     </label>
                   </div>
 
+<<<<<<< HEAD
                   <!--
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button type="button" class="btn btn-primary btn-lg">Register</button>
@@ -131,6 +152,11 @@ if(isset($_POST['submit'])){
                   </div>
 
 
+=======
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="button" class="btn btn-primary btn-lg">Register</button>
+                  </div>
+>>>>>>> 08ed1290c5911b178bbb5e631f65ebcbcdc656b8
 
                 </form>
 
