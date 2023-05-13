@@ -2,13 +2,13 @@
 
 class db {
 
-    private $db_host = 'localhost';
-    private $db_user = 'root';
-	private $db_password = '';
-	private $db_db = 'practice';
+    private string $db_host = 'localhost';
+    private string $db_user = 'root';
+	private string $db_password = '';
+	private string $db_db = 'practice';
 	
-	private $result = array();
-    private $conn;
+	private  $result = array();
+    private  $conn;
 
 	public function __construct() {
 
