@@ -11,12 +11,12 @@
   </body>
 </html>
 
-<<<<<<< HEAD
+
 <div class="container">
-=======
+
 <div class="container" data-aos="fade-up"
      data-aos-duration="3000">
->>>>>>> 08ed1290c5911b178bbb5e631f65ebcbcdc656b8
+
 	<div class="row">		
 <section class="">
   <!-- Footer -->
