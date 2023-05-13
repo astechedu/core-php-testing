@@ -40,7 +40,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `salary`, `city`) VALUES
 (0, 'kumar', 9000, 'meerut'),
-(1, 'ajay', 1000, 'dehradun'),
+(1, 'ajay', 1000, 'noida'),
 (2, 'sohan', 2000, 'meerut'),
 (3, 'rohan', 3000, 'meerut'),
 (4, 'kumar', 4000, 'dehradun'),
