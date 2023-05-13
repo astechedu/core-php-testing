@@ -1,5 +1,5 @@
 $(function(){
-
+  
 	   $("#logout").on('click', function(){
        let logout = $("#logout").attr('id');
     
@@ -56,5 +56,25 @@ $(function(){
         // id = $("$id").val();
        });
     
+
+
+//PDF
+
+let userId = $('#id').val();
+let userName = $('#name').val();
+let userSalary = $('#salary').val();
+
+let pdfdownload = $('#pdfdownload');
+
+pdfdownload.on('click', function() {
+    $.ajax({
+      url: '/partials/pdf.php',
+      type:'post',      
+      data:{userid:userId,username:userName,usersalary:userSalary}
+    });
+});
+
+
+
 	   
 });

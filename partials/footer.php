@@ -59,10 +59,6 @@
 </div>
 
 
-<script src="/bootstrap5/js/bootstrap.bundle.min.js"></script>
-<script src="/bootstrap5/js/jquery.min.js"></script>
-   
-
   </body>
 </html>
 

@@ -32,6 +32,9 @@
 
   ?>
 
+<!--From here page content -->
+
+
 
 <!--Header -->
 <?php include 'partials/header.php'; ?>
@@ -46,38 +49,9 @@
   Register
 </button>
 
-  <div class="row">   
-   <div class="col-md-10">
-       <caption>Users Listing</caption>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>ID</th><th>Name</th><th>Salary</th><th>City</th><th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>    
-            <?php foreach($db_conn->fetchall() as $record) { ?>     
-              <tr>    
-      <td>
-        <?= $record['id'] ?></td> <td><?= $record['name'] ?></td>
-         <td><?= $record['salary'] ?></td> <td><?= $record['city'] ?></td> 
-        <td> 
-        <a href="/?action=d&id=<?= $record['id'] ?>" class="btn btn-xs btn-danger">Trash</a>           
-       <!-- <a href="/?action=e&id=<?= $record['id'] ?>" class="btn btn-xs btn-info">Edit</a> -->
-                  <!-- Rrash -->
-          <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal" id="edit">
-            Edit
-          </button>
 
-        <!-- <a href="/?action=v&id=<?= $record['id'] ?>" class="btn btn-xs btn-success" id="view">View</a> -->
-           <input type="hidden" name="id" value="<?= $record['id'] ?>" id="vid">
-           <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalView" id="view">
-            View
-          </button>              
-        </td> 
-        </tr> <?php } ?>                                        
-</tbody>
-</table> 
+<!-- Users or All Recores Lising On Tables -->
+<?php include 'partials/users_table.php'; ?>
 
 </div>
 
