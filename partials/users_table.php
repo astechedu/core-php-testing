@@ -4,7 +4,7 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>ID</th><th>Name</th><th>Salary</th><th>City</th><th>Actions</th>
+              <th>ID</th><th>Name</th><th>Salary</th><th>City</th><th>Actions</th><th>Downlod PDF</th>
             </tr>
           </thead>
           <tbody>    
@@ -27,14 +27,19 @@
             View
           </button> 
           
-          <a href="#" class="btn btn-xs btn-secondary" id="pdfdownload">Download pdf</a>
-          <input type="hidden" name="id" value="<?php echo $record['id']; ?>" id="id">   
-          <input type="hidden" name="name" value="<?php echo $record['name']; ?>" id="name">   
-          <input type="hidden" name="salary" value="<?php echo $record['salary']; ?>" id="salary">
+        </td>
+        
+          <td>
+          <!-- PDF Form -->
+          <form action="/partials/pdf.php" method="post">
+            <input type="hidden" name="id" value="<?php echo $record['id']; ?>" id="id">   
+            <input type="hidden" name="name" value="<?php echo $record['name']; ?>" id="name">   
+            <input type="hidden" name="salary" value="<?php echo $record['salary']; ?>" id="salary">
+            <input type="submit" name="pdf" value="Generate Pdf" class="btn btn-xs btn-secondary">
+          </form>
 
         </td> 
         </tr> <?php } ?>    
-
 
 </tbody>
 </table> 
