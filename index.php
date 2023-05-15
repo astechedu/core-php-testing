@@ -1,23 +1,33 @@
 <?php
 
-// https://localhost/index.php/{MODULE_NAME}/{METHOD_NAME}?limit={LIMIT_VALUE}
-//http://localhost/index.php/user/list?limit=20
-
-
-require __DIR__ . "/inc/bootstrap.php";
-
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$uri = explode( '/', $uri );
-if ((isset($uri[2]) && $uri[2] != 'user') || !isset($uri[3])) {
-    header("HTTP/1.1 404 Not Found");
-    
-   
-    exit();
-    
-}
-require PROJECT_ROOT_PATH . "/Controller/Api/UserController.php";
-$objFeedController = new UserController();
-$strMethodName = $uri[3] . 'Action';
-$objFeedController->{$strMethodName}();
-
+//API Website
+//https://www.allphptricks.com/create-and-consume-simple-rest-api-in-php/
 ?>
+
+
+<?php
+if (isset($_POST['order_id']) && $_POST['order_id']!="") {
+	$order_id = $_POST['order_id'];
+	$url = "http://localhost/api.php/".$order_id;
+	
+	$client = curl_init($url);
+	curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
+	$response = curl_exec($client);
+	
+	$result = json_decode($response);
+	
+	echo "<table>";
+	echo "<tr><td>Order ID:</td><td>$result->order_id</td></tr>";
+	echo "<tr><td>Amount:</td><td>$result->amount</td></tr>";
+	echo "<tr><td>Response Code:</td><td>$result->response_code</td></tr>";
+	echo "<tr><td>Response Desc:</td><td>$result->response_desc</td></tr>";
+	echo "</table>";
+}
+    ?>
+
+<form action="" method="POST">
+<label>Enter Order ID:</label><br />
+<input type="text" name="order_id" placeholder="Enter Order ID" required/>
+<br /><br />
+<button type="submit" name="submit">Submit</button>
+</form>
