@@ -6,9 +6,9 @@
 
 
 <?php
-if (isset($_POST['order_id']) && $_POST['order_id']!="") {
+if (isset($_POST['order_id']) && $_POST['order_id']!="") {	
 	$order_id = $_POST['order_id'];
-	$url = "http://localhost/api.php/".$order_id;
+	$url = "http://localhost/rest/api/api.php?".$order_id;
 	
 	$client = curl_init($url);
 	curl_setopt($client,CURLOPT_RETURNTRANSFER,true);

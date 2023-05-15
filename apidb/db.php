@@ -5,3 +5,5 @@ $con = mysqli_connect("localhost","root","","phpapi");
 	echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	die();
 	}
+
+ 
