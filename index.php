@@ -11,7 +11,7 @@ if (isset($_POST['order_id']) && $_POST['order_id']!="") {
 	$url = "http://localhost/rest/api/api.php?".$order_id;
 	
 	$client = curl_init($url);
-	curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
+	curl_setopt($client,CURLOPT_RETURNTRANSFER,true);	
 	$response = curl_exec($client);
 	
 	$result = json_decode($response);
@@ -23,6 +23,8 @@ if (isset($_POST['order_id']) && $_POST['order_id']!="") {
 	echo "<tr><td>Response Desc:</td><td>$result->response_desc</td></tr>";
 	echo "</table>";
 }
+
+
     ?>
 
 <form action="" method="POST">
@@ -31,3 +33,8 @@ if (isset($_POST['order_id']) && $_POST['order_id']!="") {
 <br /><br />
 <button type="submit" name="submit">Submit</button>
 </form>
+
+?>
+
+
+
