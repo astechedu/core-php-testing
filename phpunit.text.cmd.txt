@@ -1,5 +1,16 @@
 
+
+
 On Windows: 
+
+------------------------------------------------------------
+Assert Functions:
+
+$this->assertEquals(3, true);
+$this->assertSame(3, true);
+$this->assertEqualsWithDelta(0.99, "1", 0.1); // passes :\
+
+------------------------------------------------------------
 
 //Phpunit 10 Test setup in Core PHP  (Working)
 
