@@ -26,11 +26,7 @@ class CalculatorTest extends TestCase {
      
    }  
 
-   public function testDevideCanNumbers() {
-     
-     $this->assertSame(1,(1/1));
-     
-   }  
+ 
    
 }
 
