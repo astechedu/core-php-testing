@@ -25,7 +25,6 @@ class CalculatorTest extends TestCase {
      $this->assertSame(1,(1/1));
      
    }  
-
  
    
 }
