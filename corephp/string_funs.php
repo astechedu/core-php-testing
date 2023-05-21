@@ -1,6 +1,7 @@
 <?php
 // array Function 
-// str_repeat();
+// str_repeat(), $ar = range('A','Z');
+
 //echo "<h1>String Functions: </h1>";
 
 //str_repeat(string,repeat)
