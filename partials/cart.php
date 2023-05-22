@@ -1,10 +1,48 @@
+<?php   
+session_start();
+
+//echo "<pre>";print_r($_SESSION);
+
+    include '../dbcon.php';
+    
+    //Object create_function(args, code)
+    $db_conn = new dbcon();   
+
+    //User Registration   
+    $id = isset($_POST['id']) ? $_POST['id'] : '';
+    $name = isset($_POST['name']) ? $_POST['name'] : '';
+    $price = isset($_POST['price']) ? $_POST['price'] : '';
+    $qty = isset($_POST['quantity']) ? $_POST['quantity'] : '';
+
+  if(isset($_POST['submit'])){
+     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+   
+    echo $id;
+    echo $name;
+    echo $price;
+    echo $qty;
+      
+            //Inserting data
+      //if($db_conn->insert($id,$name,$salary,$city)){
+        //echo "<div class='alert alert-info'>Data successfully inserted</div>";
+        //echo "Data successfully inserted";  
+
+      //}else{
+        //echo "Not inserted try again";
+      //}      
+       
+    }
+  }
+  ?>
+
+
 <!-- header -->  
 <header>   
 <div class="container">
-<?php include '../partials/header.php';?>
+<?php include 'header.php';?>
 
 <!-- navbar -->
-<?php include '../partials/navbar.php';?>
+<?php include 'nav.php';?>
 </div>
 </header>
 
@@ -202,6 +240,6 @@
 <!-- footer -->
 <footer>
 <div class="container">
-  <?php include '../partials/footer.php';?>
+  <?php include 'footer.php';?>
 </div>
 </footer>
