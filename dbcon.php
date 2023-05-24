@@ -5,7 +5,7 @@ class dbcon {
     private $db_host = 'localhost';
     private $db_user = 'root';
 	private $db_password = '';
-	private $db_db = 'ci41';
+	private $db_db = 'phpcart';
 	
 	private $result = array();
     private $conn=null;
@@ -37,13 +37,26 @@ class dbcon {
 	    $sql = 'select *from products';
 		$query = mysqli_query($this->conn,$sql);
         $result = array();
-		while( $row = mysqli_fetch_array($query))  {
+		while( $row = mysqli_fetch_assoc($query))  {
 
           $result[] = $row;
 		}
 
 		return $result;		
 	}
+
+	public function fetchByCode($code) {  	   
+	    $sql = 'select * from products where code = '.$code;   
+		$query = mysqli_query($this->conn,$sql);
+        $result = array();
+		while( $row = mysqli_fetch_array($query))  {
+       echo "<pre>";print_r($row);
+          $result[] = $row;
+		}
+   echo "<pre>"; print_r($result); exit;
+		return $result;	
+
+	}	
 
 	public function fetchbyid($product_id) {
 
@@ -79,7 +92,7 @@ class dbcon {
           return false; 
 	}	
 
-	public function __destruct() {
+		public function __destruct() {
 		$this->conn = mysqli_close($this->conn);
 	}		
 

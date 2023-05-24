@@ -1,34 +1,17 @@
   <?php   
+  
+session_start();
 
-    include 'dbcon.php';
-    
+ //echo "<pre>"; print_r($_SESSION['shopping_cart']);
+//session_destroy($_SESSION['shopping_cart'][counter]);
+//session_destroy($_SESSION['shopping_cart'][0]);
+
+//session_destroy($_SESSION['shopping_cart']);
+
+   //include 'dbcon.php';
+
     //Object create_function(args, code)
     $db_conn = new dbcon();   
-
-    //User Registration   
-    echo  $id = isset($_POST['id']) ? $_POST['id'] : '';
-
-     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-   
-      if(isset($_POST['name']) && $_POST['name']=='edit'){
-         echo "Edit";
-      }
-
-      //$id = isset($_POST['id']) ? $_POST['id'] : ''; 
-      $name = isset($_POST['name']) ? $_POST['name'] : '';       
-      $salary = isset($_POST['salary']) ? $_POST['salary'] : '';   
-      $city = isset($_POST['city']) ? $_POST['city'] : '';
-      
-            //Inserting data
-      if($db_conn->insert($id,$name,$salary,$city)){
-        echo "<div class='alert alert-info'>Data successfully inserted</div>";
-        //echo "Data successfully inserted";  
-
-      }else{
-        echo "Not inserted try again";
-      }      
-       
-    }
 
   ?>
 
@@ -50,20 +33,22 @@
 <!-- Card Product Listing -->
   <div class="row">   
   <?php foreach($db_conn->fetchall() as $product) { ?>
-  
+   
     <div class="card m-2" style="width: 10rem;">
       <div class="card-heading"><?= $product['name'] ?></div>
       <img src="../images/<?= $product['img'] ?>" class="card-img-top img-thumbnail" alt="...">
       <div class="card-body">        
+        <div class=""><?= $product['code'] ?></div>
         <h5 class="card-title">$<?= $product['price'] ?></h5>
         <p class="card-text"><?= $product['description'] ?></p>
         <a href="#" class="btn btn-danger">Buy Now</a>
 
-        <form action="partials/cart.php" method="post">
+        <form action="partials/manage_cart.php" method="post">
           <input type="hidden" name="id" value="<?= $product['id'] ?>">
           <input type="hidden" name="name" value="<?= $product['name'] ?>">
           <input type="hidden" name="price" value="<?= $product['price'] ?>">
           <input type="hidden" name="quantity" value="<?= $product['quantity'] ?>">
+          <input type="hidden" name="code" value="<?= $product['code'] ?>">
           <input type="submit" name="submit" value="submit" class="btn btn-primary">
         </form>
 
@@ -74,7 +59,6 @@
   </div>
 
 </div>
-
     <!--
     <div class="col-md-4">   
        <form id="registerform" action="" method="post">

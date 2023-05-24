@@ -11,7 +11,7 @@
           <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
           <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
           <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-          <li><a href="partials/cart.php" class="nav-link px-2 text-white">Cart(0)</a></li>
+          <li><a href="http://localhost/partials/cart.php" class="nav-link px-2 text-white">Cart(0)</a></li>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">

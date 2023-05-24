@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/bootstrap5/css/bootstrap.min.css" rel="stylesheet">
-    <script type="text/javascript" src="../site.js"></script>
+    
 
     <title>Hello, world!</title>
   </head>

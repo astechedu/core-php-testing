@@ -5,7 +5,7 @@ class dbcon {
     private $db_host = 'localhost';
     private $db_user = 'root';
 	private $db_password = '';
-	private $db_db = 'ci41';
+	private $db_db = 'phpcart';
 	
 	private $result = array();
     private $conn=null;

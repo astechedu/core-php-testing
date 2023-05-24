@@ -1,11 +1,11 @@
 <?php
 
-class db {
+class dbcon {
 
     private $db_host = 'localhost';
     private $db_user = 'root';
 	private $db_password = '';
-	private $db_db = 'practice';
+	private $db_db = 'phpcart';
 	
 	private $result = array();
     private $conn=null;
@@ -20,9 +20,9 @@ class db {
       //
 	}
 
-	public function insert($id,$name,$salary,$city) {
+	public function insert($product_id,$product_name,$product_price,$product_quantity) {
        
-       $sql = "insert into products(id,name,salary,city) values('".$id."','".$name."','".$salary."','".$city."')";
+       $sql = "insert into products(id,name,price,quantity) values('".$product_id."','".$product_name."','".$product_price."','".$product_quantity."')";
        $query = mysqli_query($this->conn,$sql);
 
        if($query){
@@ -37,7 +37,7 @@ class db {
 	    $sql = 'select *from products';
 		$query = mysqli_query($this->conn,$sql);
         $result = array();
-		while( $row = mysqli_fetch_array($query))  {
+		while( $row = mysqli_fetch_assoc($query))  {
 
           $result[] = $row;
 		}
@@ -45,16 +45,34 @@ class db {
 		return $result;		
 	}
 
-	public function fetchbyid($id) {
+	public function fetchByCode($code) {  	   
 
-	    $sql = 'select *from products where id='.$id;
+	    $sql = 'SELECT * FROM products WHERE code = '.$code;   
+
 		$query = mysqli_query($this->conn,$sql);
-        $result = array();
-		while( $row = mysqli_fetch_array($query))  {
 
+        $result = array();
+		while( $row = mysqli_fetch_assoc($query))  {
+       //echo "<pre>";print_r($row);
           $result[] = $row;
 		}
 
+        //echo "<pre>"; print_r($result); exit;
+
+		return $result;	
+
+	}	
+
+	public function fetchById($product_id) {
+
+	    $sql = 'select *from products where id='.$product_id;
+		$query = mysqli_query($this->conn,$sql);
+        $result = array();
+		while( $row = mysqli_fetch_assoc($query))  {
+
+          $result[] = $row;
+		}
+       // echo "<pre>";print_r($result);
 		return $result;	
 
 	}	
@@ -67,9 +85,9 @@ class db {
 		
 	}	
 
-	public function delete($id) {
+	public function delete($product_id) {
        
-       $sql = "drop table products where id = ".$id ;
+       $sql = "drop table products where product_id = ".$product_id ;
        $query = mysqli_query($this->conn,$sql);
 
        if($query){
@@ -79,10 +97,11 @@ class db {
           return false; 
 	}	
 
-	public function __destruct() {
+		public function __destruct() {
 		$this->conn = mysqli_close($this->conn);
 	}		
 
 }
+
 
 ?>
