@@ -1,17 +1,47 @@
 <?php   
 session_start();
 
-//session_destroy($_SESSION['shopping_cart']['counter']);
-//session_destroy($_SESSION['shopping_cart'][0]);
-
- //session_delete($_SESSION['shopping_cart']['counter']);
-//session_destroy($_SESSION['shopping_cart']);
-
 //echo "<pre>"; print_r($_SESSION['shopping_cart']);
+
+
+$cartRemoveMess='';
+if(isset($_POST['remove']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
+  
+   $code = $_POST['code']?? '';
+     if(isset($_SESSION['shopping_cart'])){
+        $abc = in_array($code,(array_keys($_SESSION['shopping_cart'])));
+        if($abc){ unset(
+          $_SESSION['shopping_cart'][$code]); 
+          $cartRemoveMess='Cart item code '.$code.' successfully removed';
+        } 
+     }
+  
+}
 
 //echo "<br>";
 
 //Adding Products to shopping cart
+//echo "<pre>"; print_r(array_map($cartQtys));
+
+
+//Grand Total of cart items
+if($_SESSION['shopping_cart']){
+  $Gtotal=0;
+  $cartPrices = array_column($_SESSION['shopping_cart'],'price');
+  $cartQtys = array_column($_SESSION['shopping_cart'],'quantity');
+
+  function myfunction($v1,$v2)
+  {  
+    return $v1*$v2;  
+  }
+
+  $cartQtyMultiPri = array_map("myfunction",$cartPrices,$cartQtys);
+  $Gtotal = array_sum($cartQtyMultiPri);
+}else{
+   $Gtotal = '';
+}
+
+
 /*
 if(!empty($_POST["quantity"])) {
     $productByCode = $db_handle->runQuery("SELECT * FROM tblproduct WHERE code='" . $_GET["code"] . "'");
@@ -35,24 +65,42 @@ if(!empty($_POST["quantity"])) {
     }
   }
   */
-
-
+    
 /*
-$myfile = fopen("../addtocart/records.php", "a") or die("Unable to open file!");
-$txt = '["id" => "'.$id.'","name" => "'.$name.'", "price" => "'.$price.'", "quantity" => "'.$qty.'"]';
-fwrite($myfile, $txt);
-fclose($myfile);
+$cartKeys=array();
+foreach($_SESSION['shopping_cart'] as $key=>$val) {
+
+  $cartKeys[] = $val;
+
+} 
+
+
+echo "<pre>"; print_r(($cartKeys));yujj
+
+
+echo in_array('lap001',$cartKeys);
+        
+
+  echo "<pre>";
+  print_r(array_column($_SESSION['shopping_cart'],'price'));
 */
 
 
-            //Inserting data
-      //if($db_conn->insert($id,$name,$salary,$city)){
-        //echo "<div class='alert alert-info'>Data successfully inserted</div>";
-        //echo "Data successfully inserted";  
 
-      //}else{
-        //echo "Not inserted try again";
-      //}      
+error_reporting(0);
+
+$item_id = $_GET["item_id"];
+session_start();
+if (!empty($_SESSION["incart"])) {
+    foreach ($_SESSION["incart"] as $select => $val) {
+        if($val["item_id"] == $item_id)
+        {
+            unset($_SESSION["incart"][$select]);
+        }
+    }
+}
+
+
        
   ?>
 
@@ -76,18 +124,24 @@ fclose($myfile);
 
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
+          <span><?= $cartRemoveMess ?></span>
+          <span>Grand Total:<strong><?= $Gtotal ?></strong></span>
+
           <div>
             <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!" class="text-body">price <i
                   class="fas fa-angle-down mt-1"></i></a></p>
           </div>
         </div>
 
-  
-       <?php if(isset($_SESSION['shopping_cart'] )){ ?>
-        
-        <?php foreach($_SESSION['shopping_cart'] as $cart) { ?>        
- 
-        <div class="card rounded-3 mb-4">
+       <!-- Single Cart Details -->      
+       <?php if(isset($_SESSION['shopping_cart'] )){ ?>       
+        <?php foreach($_SESSION['shopping_cart'] as $cart) { ?>  
+        <!-- Total -->
+        <?php 
+              $total = $cart['quantity'] * $cart['price'];               
+        ?>
+
+        <div class="card rounded-3 mb-2">
           <div class="card-body p-4">
             <div class="row d-flex justify-content-between align-items-center">
               <div class="col-md-2 col-lg-2 col-xl-2">
@@ -113,12 +167,24 @@ fclose($myfile);
                   <i class="fas fa-plus"></i>
                 </button>
               </div>
-              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 class="mb-0">$<span id="price"><?= $cart['price'] ?></span></h5>
+
+              <div class="col-md-3 col-lg-3 col-xl-2 offset-lg-1">
+                <h5 class="mb-0">$<span id="price"><?= $total ?></span></h5>
               </div>
+
+                <!-- Delete Single Cart Item -->
+                <div class="col-md-2 col-lg-2 col-xl-2 d-flex mt-3">
+                  <form action="http://localhost/partials/cart.php" method="post">
+                    <input type="submit" name="remove" value="remove" class="btn btn-danger" >
+                    <input type="hidden" name="code" value="<?= $cart['code'] ?>">
+                  </form> 
+                </div>
+                <!-- Single Cart Details End -->
+
               <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                 <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
-              </div>
+              </div>             
+
             </div>
           </div>
         </div>
@@ -162,16 +228,3 @@ fclose($myfile);
 
 
 
-
-<script>
-
-
-   var total = 0;
-   let  q = document.getElementById('qty').value;
-   //let price = Number(document.getElementById('price').textContent); 
-   //total = qty * price;
-
-   alert(q);
-   console.log(total);
-
-</script>

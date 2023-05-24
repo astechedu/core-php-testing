@@ -3,11 +3,43 @@
 
 
 Key: cart logic 1, cart logic 2, tables, 
-//---------------------------------------------------------
+     array_column(), array_keys(), in_array(),Gtotal Found, 
 
+//---------------------------------------------------------------------------
+
+//Extract all columns like , id, name etc.
+   $array = array(
+      array('id' =>1, 'name' => 'ajay'),
+      array('id' =>2, 'name' => 'sonu'),
+      array('id' =>3, 'name' => 'raja'),
+   );
+
+  array_column($array, 'id');
 
 
 //---------------------------------------------------------------------------
+
+//Grand Total Found of Cart Items using php in-built functions
+
+//Grand Total of cart items
+if($_SESSION['shopping_cart']){
+  $Gtotal=0;
+  $cartPrices = array_column($_SESSION['shopping_cart'],'price');
+  $cartQtys = array_column($_SESSION['shopping_cart'],'quantity');
+
+  function myfunction($v1,$v2)
+  {  
+    return $v1*$v2;  
+  }
+
+  $cartQtyMultiPri = array_map("myfunction",$cartPrices,$cartQtys);
+  $Gtotal = array_sum($cartQtyMultiPri);
+}else{
+   $Gtotal = '';
+}  
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+
 //Shopping Cart My Code:
 //It is working.
 
@@ -316,8 +348,33 @@ unset($_SESSION["cart_item"]);
 }
 break;
 
+//------------------------------------------------------------
 
+//Adding Products to shopping cart
 
+/*
+if(!empty($_POST["quantity"])) {
+    $productByCode = $db_handle->runQuery("SELECT * FROM tblproduct WHERE code='" . $_GET["code"] . "'");
+    $itemArray = array($productByCode[0]["code"]=>array('name'=>$productByCode[0]["name"], 'code'=>$productByCode[0]["code"], 'quantity'=>$_POST["quantity"], 'price'=>$productByCode[0]["price"], 'image'=>$productByCode[0]["image"]));
+    
+    if(!empty($_SESSION["cart_item"])) {
+      if(in_array($productByCode[0]["code"],array_keys($_SESSION["cart_item"]))) {
+        foreach($_SESSION["cart_item"] as $k => $v) {
+            if($productByCode[0]["code"] == $k) {
+              if(empty($_SESSION["cart_item"][$k]["quantity"])) {
+                $_SESSION["cart_item"][$k]["quantity"] = 0;
+              }
+              $_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
+            }
+        }
+      } else {
+        $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
+      }
+    } else {
+      $_SESSION["cart_item"] = $itemArray;
+    }
+  }
+  */
 
 
 

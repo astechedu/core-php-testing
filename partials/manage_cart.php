@@ -38,8 +38,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }else{    
             //echo 'Not Found';}
 	        $_SESSION['shopping_cart'][$code]['quantity'] += $cartArray[$code]['quantity'];
+	        
             header('location: /');	
-        }
+        }            
 	}else{
 		    //If product hit first time by user
 		    $_SESSION['shopping_cart'] = $cartArray;
