@@ -1,2 +1,2 @@
-# corephp
-This is for absolute beginners.
+# Core PHP Shopping Cart For Beginners
+
