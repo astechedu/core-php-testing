@@ -27,7 +27,7 @@ if(isset($_POST['remove']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 //Grand Total of cart items
-if($_SESSION['shopping_cart']){
+if(isset($_SESSION['shopping_cart'])){
   $Gtotal=0;
   $cartPrices = array_column($_SESSION['shopping_cart'],'price');
   $cartQtys = array_column($_SESSION['shopping_cart'],'quantity');
@@ -172,8 +172,8 @@ if (!empty($_SESSION["incart"])) {
               </div>
 
               <div class="col-md-3 col-lg-3 col-xl-2 offset-lg-1">
-                <h5 class="mb-0">$<span id="total" class="text-warning"><?= $total ?></span></h5>
-                <input type="hidden" id="price" value="<?= $cart['price'] ?>">
+                <h5 class="mb-0">$<span id="total" class="text-warning total"><?= $total ?></span></h5>
+                <input type="hidden" id="price" value="<?= $cart['price'] ?>" class="price">
               </div>
 
                 <!-- Delete Single Cart Item -->
@@ -235,7 +235,19 @@ if (!empty($_SESSION["incart"])) {
 <script type="text/javascript">
 
 $(function(){
+  //Add to cart added Message
   $('#rmess').fadeOut(2000);
+
+  //Update price when update quantity 
+  $('.qt').each(function(i){     
+
+      $('.qty').eq(i).on('change', function(){
+          let total = parseInt($('.qty').eq(i).val()) * parseFloat($('.price').eq(i).val())
+          $('.total').eq(i).text(total)        
+      });
+       
+  });
+
 });
 </script>
 

@@ -4,6 +4,7 @@
 
 Key: cart logic 1, cart logic 2, tables, 
      array_column(), array_keys(), in_array(),Gtotal Found, Pagination, 
+     join, 
 
 //---------------------------------------------------------------------------
 
@@ -380,7 +381,7 @@ if(!empty($_POST["quantity"])) {
 
 //Pagination: 
 
-<?php  
+//<?php  
   
     //database connection  
     $conn = mysqli_connect('localhost', 'root', '');  
@@ -427,17 +428,35 @@ if(!empty($_POST["quantity"])) {
         echo '<a href = "index2.php?page=' . $page . '">' . $page . ' </a>';  
     }  
   
-?>
+
 
 
 //---------------------------------------------------------------------
 
+Join:
+
+//1. 
+
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
 
 
+SELECT p.id, c.category_name
+FROM products p
+INNER JOIN categories c ON p.id=c.category_id;
 
 
-
-
+SELECT products.productname, products.price, categories.categoryname
+FROM products
+INNER JOIN categories
+ON products.categoryid=categories.id;
 
 
 ?>
+
+
+
+
+
+

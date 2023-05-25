@@ -85,6 +85,69 @@ class dbcon {
 		
 	}	
 
+	public function fetchByJoin() {  	   
+
+	    $sql = 'SELECT * FROM products p inner join categories c ON p.id=c.category_id';   
+
+		$query = mysqli_query($this->conn,$sql);
+
+        $result = array();
+		while( $row = mysqli_fetch_assoc($query))  {
+       //echo "<pre>";print_r($row);
+          $result[] = $row;
+		}
+
+        //echo "<pre>"; print_r($result); exit;
+
+		return $result;	
+
+	}	
+
+//SELECT p.Name, p.Price, p.Image
+//FROM Product p
+//INNER JOIN (ProductLookup pl) ON (p.Product_ID = pl.Product_ID)
+//WHERE pl.Category_ID = 1
+
+	public function fetchByCategoryName() {  	   
+
+	    $sql = 'SELECT * FROM  categories c  inner join products p ON c.category_id=p.id
+	    WHERE c.category_id=1 || c.category_id=2';   
+
+		$query = mysqli_query($this->conn,$sql);
+
+        $result = array();
+		while( $row = mysqli_fetch_assoc($query))  {
+       //echo "<pre>";print_r($row);
+          $result[] = $row;
+		}
+
+        //echo "<pre>"; print_r($result); exit;
+
+		return $result;	
+
+	}	
+	
+
+//-------------------------------------------------------------------------------------------
+//$category_slug = $_GET['category'];
+//$category_data = getSlugActive('categories',$category_slug);
+//$category = mysqli_fetch_array($category_data);
+//$cid = $category['id'];
+
+	public function getSlugActive($table,$slug) {
+		global $con;
+		$query = "select * from $table WHERE slug='$slug' and status='0' LIMIT 1";
+		return $query_run = mysqli_query($con,$query);
+	}
+
+    
+	public function getProductByCatetory($category_id) {
+		global $con;
+		$query = "select * from products WHERE category_id='$category_id' and status='0'";
+		return $query_run = mysqli_query($con,$query);
+	}
+//--------------------------------------------------------------------------------------------
+
 	public function delete($product_id) {
        
        $sql = "drop table products where product_id = ".$product_id ;

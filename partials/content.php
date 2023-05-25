@@ -1,9 +1,14 @@
 <?php     
 session_start();
 
+
+
 $db_conn = new dbcon();   
+  
+
 
 ?>
+
 
 <!--Header -->
 <?php include 'partials/header.php'; ?>
@@ -14,11 +19,21 @@ $db_conn = new dbcon();
 <div class="container">
   <h1 class="">Product Listing</h1> 
 
+  <!-- Searching Button -->
+  <form action="/" method="POST">  
+    <div class="form-group col-md-6 d-flex mx-auto">
+    <input type="text" name="search" value="" class="bd-highlight form-control" placeholder="Searching by category" />
+    <input type="submit" name="submit" value="Search" class="bd-highlight w/3form-control btn btn-md btn-info">
+    </div>
+  </form>
+
     <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Register
   </button>
- <span id='mess' class="text-success"><?php echo $_SESSION['message']?? '' ?></span>
+ <span id='mess' class="text-success"><?php echo $_SESSION['message']?? '' ?>
+   <?php unset($_SESSION['message']) ?>
+ </span>
 
 <!-- Card Product Listing -->
   <div class="row">   
