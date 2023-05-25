@@ -1,12 +1,9 @@
-  <?php   
-  
+<?php     
 session_start();
 
 $db_conn = new dbcon();   
 
-  ?>
-
-
+?>
 
 <!--Header -->
 <?php include 'partials/header.php'; ?>
@@ -14,13 +11,14 @@ $db_conn = new dbcon();
 <!-- Nav -->
 <?php include 'partials/nav.php' ;?>
 
-
 <div class="container">
-  <h1 class="">Product Listing</h1>
+  <h1 class="">Product Listing</h1> 
+
     <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Register
   </button>
+ <span id='mess' class="text-success"><?php echo $_SESSION['message']?? '' ?></span>
 
 <!-- Card Product Listing -->
   <div class="row">   
@@ -33,7 +31,7 @@ $db_conn = new dbcon();
         <div class=""><?= $product['code'] ?></div>
         <h5 class="card-title">$<?= $product['price'] ?></h5>
         <p class="card-text"><?= $product['description'] ?></p>
-        <a href="#" class="btn btn-danger">Buy Now</a>
+        <!--<a href="#" class="btn btn-danger">Buy Now</a>-->
 
         <form action="partials/manage_cart.php" method="post">
           <input type="hidden" name="id" value="<?= $product['id'] ?>">
@@ -52,6 +50,7 @@ $db_conn = new dbcon();
 
 </div>
 
+
 <!-- User Register Form -->
 <?php //include 'forms/user_register.php' ;?>
   
@@ -67,3 +66,19 @@ $db_conn = new dbcon();
 <style type="text/css">
    #registerform{display: none;}
 </style>
+
+
+<script type="text/javascript">
+
+$(function(){
+  $('#mess').fadeOut(2000);
+});
+
+
+  //hideMessage();
+  function hideMessage() {
+      document.getElementById("mess").style.display = "none";
+  };
+  setTimeout(hideMessage, 18000);
+
+</script>

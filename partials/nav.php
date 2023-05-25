@@ -1,4 +1,4 @@
-  <nav class="p-3 bg-dark text-whitem">
+  <nav class="p-3 bg-dark text-whitem ">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -16,7 +16,7 @@
             foreach($_SESSION['shopping_cart'] as $count){ $i++; 
           } } ?>  
 
-          <li><a href="http://localhost/partials/cart.php" class="nav-link px-2 text-white">Cart(<?= "<span class='text-danger'>".$i."</span>" ?>)</a></li>
+          <li><a href="http://localhost/partials/cart.php" class="nav-link px-2 text-white">Cart(<?= "<span class='text-danger bg-white rounded-circle border-warning'>".$i."</span>" ?>)</a></li>
           
         </ul>
 

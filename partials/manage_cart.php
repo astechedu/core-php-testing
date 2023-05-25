@@ -5,7 +5,7 @@ include '../bootstrap/dbcon.php';
 
 $db_conn = new dbcon();   
 $status="";
-
+$mess='';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){      
    
@@ -27,24 +27,29 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		)   
 	);
 
-	if($_SESSION['shopping_cart']) {	  	        
+	if(isset($_SESSION['shopping_cart'])) {	  	        
 	        //If again same product hit with same id, qty++
 	        //echo "<pre>"; print_r($_SESSION['shopping_cart'][$id]);
          if(!in_array($cartArray[$code]['code'], array_keys($_SESSION['shopping_cart']))){     
             //echo "Found";
-	       $_SESSION['shopping_cart'] = array_merge($_SESSION['shopping_cart'],$cartArray);
+	       $_SESSION['shopping_cart'] = array_merge($_SESSION['shopping_cart'],$cartArray);	       
+	       $_SESSION['message'] = 'Item added to cart.';	       
 	       header('location: /');
+	       exit;
 
         }else{    
             //echo 'Not Found';}
-	        $_SESSION['shopping_cart'][$code]['quantity'] += $cartArray[$code]['quantity'];
-	        
+	        $_SESSION['shopping_cart'][$code]['quantity'] += $cartArray[$code]['quantity'];	        
+	        $_SESSION['message'] = 'Same item added to cart.';
             header('location: /');	
+            exit;
         }            
 	}else{
 		    //If product hit first time by user
-		    $_SESSION['shopping_cart'] = $cartArray;
+		    $_SESSION['shopping_cart'] = $cartArray;		    
+		    $_SESSION['message'] = 'Item added to cart.';
 		    header('location: /');
+		    exit;
         }    
 
     }//Submit
