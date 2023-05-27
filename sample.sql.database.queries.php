@@ -2,7 +2,7 @@
 //Sql syntax:
 
 Keys: joins, Products Category Example, Ecommerce Tables Design, 
-      Category And Food Tables, 
+      Category And Food Tables, Sub Query Category, Category Ancedent Category_Relation Decendent, 
 
 //-----------------------------------------------------------------------------------
 
@@ -24,6 +24,9 @@ SELECT products.productname, products.price, categories.categoryname
 FROM products
 INNER JOIN categories
 ON products.categoryid=categories.id;
+
+//Sub Query Category
+"select * from product whre prod_cat = (select cat_id from category where cat_name = '$catname')"
 
 //-----------------------------------------------------------------------------------
 
@@ -365,7 +368,106 @@ f_keywords  txt
 
 //----------------------------------------------------------------------------------
 
-  
+
+//Category Ancedent Category_Relation Decendent
+// https://stackoverflow.com/questions/31949292/categories-and-subcategories-from-one-mysql-table
+
+1. 
+
+CREATE TABLE categories (
+  cat_id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  cat_name VARCHAR(64),
+  # Other columns...
+) ENGINE=InnoDB;
+
+
+2.
+
+CREATE TABLE category_relations (
+  ancestor_id INT(11) UNSIGNED,
+  descendant_id INT(11) UNSIGNED,
+  depth INT(11) UNSIGNED
+  PRIMARY KEY (ancestor_id, descendant_id),
+  FOREIGN KEY (ancestor_id) REFERENCES categories.cat_id,
+  FOREIGN KEY (descendant_id) REFERENCES categories.cat_id
+) ENGINE=InnoDB;
+
+
+//Insert Values in both tables
+INSERT INTO categories (
+  cat_name
+) VALUES (
+  'animal'
+);
+
+//After getting the ID of the newly inserted node
+INSERT INTO category_relations (
+  ancestor_id, 
+  descendant_id, 
+  depth
+) VALUES (
+  1,
+  1,
+  0
+);
+
+//Again inserting values in table
+
+
+INSERT INTO categories (
+  cat_name
+) VALUES (
+  'feline'
+);
+
+# We'll assume the new ID is 2
+
+INSERT INTO category_relations (
+  ancestor_id, 
+  descendant_id, 
+  depth
+) VALUES (
+  2,
+  2,
+  0
+);
+
+
+//Table look like this
+
+ancestor_id | descendant_id | depth
+=============+===============+=======
+           1 |             1 |     0
+           2 |             2 |     0
+           3 |             3 |     0
+           4 |             4 |     0
+           1 |             2 |     1
+           2 |             3 |     1
+           2 |             4 |     1
+           1 |             3 |     2
+           1 |             4 |     2
+
+
+//Get the entire animal tree
+
+SELECT c.*
+FROM category AS c
+JOIN category_relations AS r ON c.cat_id = r.descendant_id
+WHERE r.ancestor_id = 1;
+
+
+ancestor_id | descendant_id | depth
+=============+===============+=======
+           1 |             1 |     0
+           1 |             2 |     1
+           1 |             3 |     2
+           1 |             4 |     2
+
+
+
+
+
+//---------------------------------------------------------------------------------- 
 
 
 ?>

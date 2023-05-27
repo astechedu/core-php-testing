@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2023 at 07:08 PM
+-- Generation Time: May 27, 2023 at 07:22 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `practice`
+-- Database: `phpcart`
 --
 
 -- --------------------------------------------------------
@@ -28,40 +28,21 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `users` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `salary` int(10) DEFAULT NULL,
-  `city` varchar(30) DEFAULT NULL
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_name` varchar(20) DEFAULT NULL,
+  `user_email` varchar(50) DEFAULT NULL,
+  `role` varchar(15) DEFAULT '0',
+  `status` tinyint(1) DEFAULT 0,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `salary`, `city`) VALUES
-(0, 'kumar', 9000, 'meerut'),
-(1, 'ajay', 1000, 'noida'),
-(2, 'sohan', 2000, 'meerut'),
-(3, 'rohan', 3000, 'meerut'),
-(4, 'kumar', 4000, 'dehradun'),
-(5, 'zubin', 5000, 'amit'),
-(6, 'testrow', 8000, 'testing'),
-(7, 'sohan', 6000, 'dhampur'),
-(8, 'sohan', 5000, 'dhampur'),
-(9, 'sohan', 5000, 'dhampur'),
-(10, 'ramanq', 3000, 'dhampur'),
-(11, 'ram', 8000, 'meerut'),
-(12, 'zubin', 4000, 'dehli'),
-(13, 'new ', 1400, 'dehradun'),
-(14, 'amit1', 1000, 'meerut');
-
---
--- Triggers `users`
---
-DELIMITER $$
-CREATE TRIGGER `user_ai` BEFORE UPDATE ON `users` FOR EACH ROW UPDATE average_sal SET average = (SELECT AVG(salary) FROM user)
-$$
-DELIMITER ;
+INSERT INTO `users` (`id`, `user_name`, `user_email`, `role`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'ajay', 'examplexyz@gmail.com', '1', 1, '2023-05-27 10:48:36', '2023-10-27 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -72,6 +53,16 @@ DELIMITER ;
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

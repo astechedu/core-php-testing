@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2023 at 07:53 PM
+-- Generation Time: May 27, 2023 at 07:23 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ci41`
+-- Database: `phpcart`
 --
 
 -- --------------------------------------------------------
@@ -37,14 +37,14 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`category_id`, `category_name`) VALUES
-(1, 'Tivi 1'),
-(2, 'Tivi 2'),
-(3, 'laptop 3'),
-(4, 'laptop 1'),
-(5, 'laptop 2'),
-(6, 'computer 1'),
-(7, 'computer 2'),
-(8, 'computer 3');
+(1, 'electronics'),
+(2, 'cosmatics'),
+(3, 'furnitures'),
+(4, 'food'),
+(5, 'stationery'),
+(6, 'man clothes'),
+(7, 'women clothes'),
+(8, 'baby clothe');
 
 --
 -- Indexes for dumped tables

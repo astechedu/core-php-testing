@@ -87,7 +87,7 @@ class dbcon {
 
 	public function fetchByJoin() {  	   
 
-	    $sql = 'SELECT * FROM products p inner join categories c ON p.id=c.category_id';   
+	    $sql = 'SELECT * FROM products p inner join categories c ON p.category_id=c.category_id';   
 
 		$query = mysqli_query($this->conn,$sql);
 
@@ -108,20 +108,18 @@ class dbcon {
 //INNER JOIN (ProductLookup pl) ON (p.Product_ID = pl.Product_ID)
 //WHERE pl.Category_ID = 1
 
-	public function fetchByCategoryName() {  	   
+	public function fetchByCategoryName($category_name) {  	   
 
-	    $sql = 'SELECT * FROM  categories c  inner join products p ON c.category_id=p.id
-	    WHERE c.category_id=1 || c.category_id=2';   
+	    $sql = "SELECT * FROM  products p  inner join categories c ON p.category_id=c.category_id
+	    where c.category_name = '$category_name'";	       
 
 		$query = mysqli_query($this->conn,$sql);
 
         $result = array();
 		while( $row = mysqli_fetch_assoc($query))  {
-       //echo "<pre>";print_r($row);
+       
           $result[] = $row;
-		}
-
-        //echo "<pre>"; print_r($result); exit;
+		}        
 
 		return $result;	
 

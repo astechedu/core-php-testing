@@ -126,7 +126,7 @@ if (!empty($_SESSION["incart"])) {
       <div class="col-10">
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>          
-          <span>Grand Total:&nbsp;<strong class="text-warning">$<?= $Gtotal ?></strong></span>
+          <span>Grand Total:&nbsp;<strong id="Gtotal" class="text-warning">$<?= $Gtotal ?></strong></span>
           <div>
             <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!" class="text-body">price <i
                   class="fas fa-angle-down mt-1"></i></a></p>
@@ -231,23 +231,23 @@ if (!empty($_SESSION["incart"])) {
 </footer>
 
 
-
 <script type="text/javascript">
-
 $(function(){
   //Add to cart added Message
   $('#rmess').fadeOut(2000);
 
   //Update price when update quantity 
-  $('.qt').each(function(i){     
-
-      $('.qty').eq(i).on('change', function(){
-          let total = parseInt($('.qty').eq(i).val()) * parseFloat($('.price').eq(i).val())
-          $('.total').eq(i).text(total)        
-      });
-       
+  let total=0; 
+  $('.qt').each(function(i){  
+      $('.qty').eq(i).on('change', function(){          
+          let total = parseInt($('.qty').eq(i).val()) * parseFloat($('.price').eq(i).val());
+          $('.total').eq(i).text(total);     
+      });       
   });
-
 });
+
 </script>
 
+<style type="text/css">
+  .search_cat_frm{display:none;}
+</style>

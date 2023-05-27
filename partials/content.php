@@ -1,11 +1,33 @@
 <?php     
 session_start();
 
-
-
 $db_conn = new dbcon();   
   
+//Searching Categories By Category Name 
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+  
+  if(isset($_POST['cat_name']) && trim($_POST['cat_name']) != ''){
+      
+      //$productsByCatName=$db_conn->fetchByCategoryName($_POST['cat_name'])?? '';
+   if($db_conn->fetchByCategoryName($_POST['cat_name'])){
 
+          $productsByCatName=$db_conn->fetchByCategoryName($_POST['cat_name']);
+
+   }else{ 
+
+          $productsByCatName=$db_conn->fetchByJoin();
+        }
+
+  }else{
+
+      $productsByCatName=$db_conn->fetchByJoin();
+  }
+
+}else{
+
+    $productsByCatName=$db_conn->fetchByJoin(); 
+}
+    
 
 ?>
 
@@ -16,36 +38,37 @@ $db_conn = new dbcon();
 <!-- Nav -->
 <?php include 'partials/nav.php' ;?>
 
-<div class="container">
-  <h1 class="">Product Listing</h1> 
+<!-- Slider -->
+<?php include 'partials/top_slider.php' ;?>
 
-  <!-- Searching Button -->
-  <form action="/" method="POST">  
-    <div class="form-group col-md-6 d-flex mx-auto">
-    <input type="text" name="search" value="" class="bd-highlight form-control" placeholder="Searching by category" />
-    <input type="submit" name="submit" value="Search" class="bd-highlight w/3form-control btn btn-md btn-info">
-    </div>
-  </form>
 
-    <!-- Button trigger modal -->
+<div class="container"> 
+
+<!-- Button trigger modal -->
+<!--
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Register
   </button>
+-->
+
  <span id='mess' class="text-success"><?php echo $_SESSION['message']?? '' ?>
    <?php unset($_SESSION['message']) ?>
  </span>
 
 <!-- Card Product Listing -->
   <div class="row">   
-  <?php foreach($db_conn->fetchall() as $product) { ?>
+
+  <?php foreach($productsByCatName as $product) { ?>
    
-    <div class="card m-2" style="width: 10rem;">
+    <div class="card m-2" style="width: 16rem;">
       <div class="card-heading"><?= $product['name'] ?></div>
-      <img src="../images/<?= $product['img'] ?>" class="card-img-top img-thumbnail" alt="...">
+      <a href="feature.php">
+        <img src="../images/<?= $product['img'] ?>" class="card-img-top img-thumbnail" alt="...">
+      </a>
       <div class="card-body">        
         <div class=""><?= $product['code'] ?></div>
         <h5 class="card-title">$<?= $product['price'] ?></h5>
-        <p class="card-text"><?= $product['description'] ?></p>
+        <p class="card-text"><?= $product['description'] ?></p>        
         <!--<a href="#" class="btn btn-danger">Buy Now</a>-->
 
         <form action="partials/manage_cart.php" method="post">
@@ -61,9 +84,11 @@ $db_conn = new dbcon();
     </div>    
   
    <?php } ?>
-  </div>
+  
+</div>
 
 </div>
+
 
 
 <!-- User Register Form -->
@@ -85,9 +110,30 @@ $db_conn = new dbcon();
 
 <script type="text/javascript">
 
+//1. Jquery:
+
 $(function(){
+  //Handling Add To Cart Messages
   $('#mess').fadeOut(2000);
 });
+
+
+//2. JavaScript:
+
+//Display PHP Data into JavaScript
+let obj = '<?php echo json_encode($productsByCatName); ?>';
+let prod = JSON.parse( obj );
+
+function prods(prod) {
+   //console.log(obj);
+   for(let p in prod){
+     console.log(prod[p].name);
+   }
+}
+
+prods(prod);
+//
+
 
 
   //hideMessage();

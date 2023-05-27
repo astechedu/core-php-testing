@@ -453,6 +453,10 @@ INNER JOIN categories
 ON products.categoryid=categories.id;
 
 
+//Sub Query Category
+"select * from product whre prod_cat = (select cat_id from category where cat_name = '$catname')"
+
+
 ?>
 
 
