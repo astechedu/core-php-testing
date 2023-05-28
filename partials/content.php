@@ -41,7 +41,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 <!-- Slider -->
 <?php include 'partials/top_slider.php' ;?>
 
-
+<section>
 <div class="container"> 
 
 <!-- Button trigger modal -->
@@ -88,7 +88,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 </div>
 
 </div>
+</section>
 
+<!-- Scroll Slider  -->
+<?php include 'scroll.slider.php' ;?>
 
 
 <!-- User Register Form -->

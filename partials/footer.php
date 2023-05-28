@@ -1,4 +1,4 @@
-<button onclick="topFunction()" id="myBtn" title="Go to top" class="btn btn-lg form-control">Top</button> 
+<button onclick="topFunction()" id="myBtn" title="Go to top" class="btn btn-lg bg-gray form-control">Back to top</button> 
 
 <div class="container">
 <div class="row">

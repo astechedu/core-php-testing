@@ -10,10 +10,10 @@
     }  
   
     //define total number of results you want per page  
-    $results_per_page = 5;  
+    $results_per_page = 3;  
   
     //find the total number of results stored in the database  
-    $query = "select *from products";  
+    $query = "select * from products p inner join categories c on p.category_id = c.category_id ";  
     $result = mysqli_query($conn, $query);  
     $number_of_result = mysqli_num_rows($result);  
   
@@ -42,10 +42,21 @@
      mysqli_close($conn); 
 
     //display the link of the pages in URL  
-    for($page = 1; $page<= $number_of_page; $page++) {  
-        echo '<a href = "http://localhost?page=' . $page . '">' . $page . ' </a>';  
-    }  
-  
-?>  
+    echo '
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    ';
+        for($page = 1; $page<= $number_of_page; $page++) {  
+            echo '<a class="page-link" href = "http://localhost?page=' . $page . '">' . $page . ' </a>';  
+        }  
+    echo '    
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>';
+
 
 ?>
+
+
+

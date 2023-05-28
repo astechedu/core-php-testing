@@ -1,4 +1,4 @@
-  <nav class="p-3 bg-dark text-white position-fixed">
+  <nav class="w-100 p-3 bg-dark text-white">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -19,7 +19,7 @@
             <li class="d-flex flex-row bd-highlight">         
 
                <a href="http://localhost/partials/cart.php" class="nav-link px-2 text-white bd-highlight">
-                <img src="/images/cart.png" class=" p-2 bd-highlight" style="width:15%;">
+                <img src="/images/cart.png" class="p-2 bd-highlight" style="width:15%;">
                 <?= "<span class='text-danger bg-white rounded-circle border-warning'>".$i."</span>" ?>        
               </a>
           </li>
@@ -46,5 +46,4 @@
     </form>
 
   </nav>
-
 
