@@ -7,6 +7,7 @@
                      <h1 class="fashion_taital">Man & Woman Fashion</h1>
                      <div class="fashion_section_2">
                         <div class="row">
+                           <!-- Hard Coded ------
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
                                  <h4 class="shirt_text">Man T -shirt</h4>
@@ -29,21 +30,26 @@
                                  </div>
                               </div>
                            </div>
+                           -- Hard Coded -->
+                           <?php foreach($fetchByCategoryFashion as $fashion) { ?>
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
-                                 <h4 class="shirt_text">Woman Scart</h4>
-                                 <p class="price_text">Price  <span style="color: #262626;">$ 30</span></p>
-                                 <div class="tshirt_img"><img src="images/women-clothes-img.png"></div>
+                                 <h4 class="shirt_text"><?= $fashion['name'] ?></h4>
+                                 <p class="price_text">Price  <span style="color: #262626;">$ <?= $fashion['price'] ?></span></p>
+                                 <div class="tshirt_img"><img src="http://localhost/images/<?= $fashion['img'] ?>"></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
                                     <div class="seemore_bt"><a href="#">See More</a></div>
                                  </div>
                               </div>
                            </div>
+                            <?php } ?>
                         </div>
                      </div>
                   </div>
                </div>
+
+               <!-- Hard Coded ---
                <div class="carousel-item">
                   <div class="container">
                      <h1 class="fashion_taital">Man & Woman Fashion</h1>
@@ -128,6 +134,8 @@
                      </div>
                   </div>
                </div>
+               -- Hard Coded -->
+
             </div>
             <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
             <i class="fa fa-angle-left"></i>

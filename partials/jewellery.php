@@ -1,7 +1,4 @@
-<?php
-
-?>     
-      <!-- jewellery  section start -->
+ <!-- jewellery  section start -->
       <div class="jewellery_section">
          <div id="jewellery_main_slider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -35,7 +32,7 @@
                            </div>
                            ----- Hard Coded End -->
 
-           <?php foreach($fetchByCategoryName as $jewellery) { ?>   
+           <?php foreach($fetchByCategoryJewellery as $jewellery) { ?>   
 
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">

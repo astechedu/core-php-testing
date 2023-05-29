@@ -44,7 +44,7 @@
                            </div>
                            Images Hard coded End -->
 
-                           <?php foreach($fetchByCategoryName as $product) { ?>
+                           <?php foreach($fetchByCategoryElectronics as $product) { ?>
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
                                  <h4 class="shirt_text"><?= $product['name'] ?> </h4>
@@ -61,6 +61,8 @@
                      </div>
                   </div>
                </div>
+
+               <!-- Hard Coded Prodduct Repeated 
                <div class="carousel-item">
                   <div class="container">
                      <h1 class="fashion_taital">Electronic</h1>
@@ -145,6 +147,8 @@
                      </div>
                   </div>
                </div>
+               -->
+
             </div>
             <a class="carousel-control-prev" href="#electronic_main_slider" role="button" data-slide="prev">
             <i class="fa fa-angle-left"></i>

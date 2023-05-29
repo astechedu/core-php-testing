@@ -38,7 +38,7 @@
    </head>
    <body>
 
-   	      <!-- banner bg main start -->
+   	<!-- banner bg main start -->
       <div class="banner_bg_main">
          <!-- header top section start -->
          <div class="container">
@@ -52,7 +52,7 @@
                            <li><a href="#">New Releases</a></li>
                            <li><a href="#">Today's Deals</a></li>
                            <li><a href="#">Customer Service</a></li>
-                           <li><a href="login.php">Admin</a></li>
+                           <li><a href="login.php" target=”_blank”>Admin</a></li>
                         </ul>
                      </div>
                   </div>

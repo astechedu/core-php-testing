@@ -5,7 +5,7 @@ $db_conn = new dbcon();
 
 $allCategories = array_column($db_conn->fetchAllCategories(), 'category_name','category_id');
 //echo "<pre>";print_r($allCategories);
-
+$fetchByCategoryFashion = $db_conn->fetchByCategoryName('fashion');
 
 ?>
 

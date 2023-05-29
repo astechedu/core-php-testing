@@ -8,7 +8,6 @@ $allCategories = array_column($db_conn->fetchAllCategories(), 'category_name','c
 
 $fetchByCategoryName = $db_conn->fetchByCategoryName('jewellery');
 
-
 ?>
 
 <?php include 'partials/header.php'; ?>
