@@ -6,7 +6,9 @@ $db_conn = new dbcon();
 $allCategories = array_column($db_conn->fetchAllCategories(), 'category_name','category_id');
 //echo "<pre>";print_r($allCategories);
 
+$fetchByCategoryName = $db_conn->fetchByCategoryName('electronics');
 
+//print_r($fetchByCategoryName);
 ?>
 
 <?php include 'partials/header.php'; ?>

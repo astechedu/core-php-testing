@@ -113,12 +113,12 @@ class dbcon {
 	    $sql = "SELECT * FROM  products p  inner join categories c ON p.category_id=c.category_id
 	    where c.category_name = '$category_name'";	       
 
-		$query = $this->conn->query($sql);
+		$result = $this->conn->query($sql);
 
-        $result = array();
-		while( $row = $this->conn->fetch_assoc($query))  {
+        $cats = array();
+		while( $row = $result->fetch_assoc())  {
        
-          $result[] = $row;
+          $cats[] = $row;
 		}        
 
 		return $result;	

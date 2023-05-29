@@ -7,6 +7,7 @@
                      <h1 class="fashion_taital">Electronic</h1>
                      <div class="fashion_section_2">
                         <div class="row">
+                           <!-- Images Hard Coded
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
                                  <h4 class="shirt_text">Laptop</h4>
@@ -18,6 +19,7 @@
                                  </div>
                               </div>
                            </div>
+                           
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
                                  <h4 class="shirt_text">Mobile</h4>
@@ -40,6 +42,21 @@
                                  </div>
                               </div>
                            </div>
+                           Images Hard coded End -->
+
+                           <?php foreach($fetchByCategoryName as $product) { ?>
+                           <div class="col-lg-4 col-sm-4">
+                              <div class="box_main">
+                                 <h4 class="shirt_text"><?= $product['name'] ?> </h4>
+                                 <p class="price_text">Start Price  <span style="color: #262626;">$ <?= $product['price'] ?></span></p>
+                                 <div class="electronic_img"><img src="http://localhost/images/<?= $product['img'] ?>"></div>
+                                 <div class="btn_main">
+                                    <div class="buy_bt"><a href="#">Buy Now</a></div>
+                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                 </div>
+                              </div>
+                           </div>
+                           <?php } ?>
                         </div>
                      </div>
                   </div>

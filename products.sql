@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2023 at 07:23 AM
+-- Generation Time: May 29, 2023 at 05:13 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -45,19 +45,22 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `price`, `quantity`, `status`, `created`, `description`, `category_id`, `img`, `code`) VALUES
-(1, 'Tivi 1', 20, 4, 1, '2021-07-13', 'good', 1, 'shirt.jpg', 'tv001'),
-(2, 'Tivi 2', 63, 15, 0, '2020-08-11', 'good', 1, 'shirt4.jpg', 'tv002'),
-(3, 'Laptop 1', 24, 12, 1, '2021-08-12', 'good', 2, 'shirt.jpg', 'lap001'),
-(4, 'Laptop 2', 60, 34, 1, '2020-08-12', 'good', 2, 'shirt4.jpg', 'lap002'),
-(5, 'Laptop 3', 23, 27, 0, '2020-08-17', 'good', 3, 'shirt3.webp', 'lap003'),
-(6, 'Computer 1', 4.5, 2, 1, '2021-08-20', 'ABC', 3, 'shirt.jpg', 'cmp001'),
-(7, 'Computer 2', 111, 222, 1, '2021-09-25', 'AAA', 7, 'shirt3.webp', 'cmp002'),
-(8, 'Computer 3', 33333, 888, 0, '2021-10-11', 'abc', 2, 'shirt4.jpg', 'cmp003'),
-(9, 'freeze', 20, 4, 1, '2021-07-12', 'good', 7, 'shirt.jpg', 'frz001'),
-(10, 'pen', 20, 4, 1, '2021-07-12', 'good', 7, 'shirt3.webp', 'pen001'),
-(11, 'shirts', 20, 4, 1, '2021-07-12', 'good', 7, 'shirt4.jpg', 'sht001'),
-(12, 'watch', 20, 4, 1, '2021-07-12', 'good', 7, 'shirt3.webp', 'wth001'),
-(13, 'charts', 20, 4, 1, '2021-07-12', 'good', 7, 'shirt.jpg', 'cht001');
+(1, 'Laptop', 100, 1, 1, '2021-07-13', 'good', 1, 'laptop-img.png', 'lpt001'),
+(2, 'Mobile', 200, 1, 0, '2020-08-11', 'good', 1, 'mobile-img.png', 'lpt002'),
+(3, 'Laptop 1', 24, 1, 1, '2021-08-12', 'good', 2, 'shirt.jpg', 'lap001'),
+(4, 'Laptop 2', 60, 1, 1, '2020-08-12', 'good', 2, 'shirt4.jpg', 'lap002'),
+(5, 'Laptop 3', 23, 1, 0, '2020-08-17', 'good', 3, 'shirt3.webp', 'lap003'),
+(6, 'Computers', 300, 1, 1, '2021-08-20', 'ABC', 1, 'computer-img.png', 'cmp001'),
+(7, 'Computer 2', 111, 1, 1, '2021-09-25', 'AAA', 7, 'shirt3.webp', 'cmp002'),
+(8, 'Computer 3', 33333, 1, 0, '2021-10-11', 'abc', 2, 'shirt4.jpg', 'cmp003'),
+(9, 'freeze', 20, 1, 1, '2021-07-12', 'good', 7, 'shirt.jpg', 'frz001'),
+(10, 'pen', 20, 1, 1, '2021-07-12', 'good', 7, 'shirt3.webp', 'pen001'),
+(11, 'shirts', 20, 1, 1, '2021-07-12', 'good', 7, 'shirt4.jpg', 'sht001'),
+(12, 'watch', 20, 1, 1, '2021-07-12', 'good', 7, 'shirt3.webp', 'wth001'),
+(13, 'charts', 20, 1, 1, '2021-07-12', 'good', 7, 'shirt.jpg', 'cht001'),
+(14, 'Jumkas', 400, 1, 0, '2023-05-29', 'good', 9, 'jhumka-img.png', 'jmk001'),
+(15, 'necklaces', 450, 1, 0, '2023-05-29', 'good', 9, 'neklesh-img.png', 'nkl001'),
+(16, 'kangan', 500, 1, 0, '2023-05-29', 'good', 9, 'kangan-img.png', 'kng001');
 
 --
 -- Indexes for dumped tables
@@ -79,7 +82,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
