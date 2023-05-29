@@ -125,11 +125,11 @@
                      </div>
                      <div class="login_menu">
                         <ul>
-                           <li><a href="#">
+                           <li><a href="http://localhost/cart/cart.php">
                               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                               <span class="padding_10">Cart</span></a>
                            </li>
-                           <li><a href="#">
+                           <li><a href="http://localhost/cart/cart.php">
                               <i class="fa fa-user" aria-hidden="true"></i>
                               <span class="padding_10">Cart</span></a>
                            </li>

@@ -175,6 +175,10 @@ class dbcon {
 
 	}	
 
+	public function admin_login($email,$password) { 
+		
+
+	}
 
 		public function __destruct() {
 		$this->conn = $this->conn->close();
