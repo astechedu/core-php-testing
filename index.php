@@ -1,15 +1,13 @@
-<?php
-  declare(strict_types = 1);
 
-  include 'bootstrap/config.php';
-  //include 'dbcon.php';
+<?php include 'partials/header.php'; ?>
 
-?>
+<?php include 'partials/banner.php'; ?>
 
+<?php include 'partials/fashion.php'; ?>
 
+<?php include 'partials/electronic.php'; ?>
 
-<!-- Content -->
-<?php include 'partials/content.php'; ?>
+<?php include 'partials/jewellery.php'; ?>
 
-
+<?php include 'partials/footer.php'; ?>
 
