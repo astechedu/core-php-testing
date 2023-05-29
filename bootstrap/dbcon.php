@@ -12,7 +12,7 @@ class dbcon {
 
 	public function __construct() {
 
-       $this->conn = mysqli_connect($this->db_host,$this->db_user,$this->db_password,$this->db_db);  
+       $this->conn = new mysqli($this->db_host,$this->db_user,$this->db_password,$this->db_db);  
       
 	}
 
@@ -23,7 +23,7 @@ class dbcon {
 	public function insert($product_id,$product_name,$product_price,$product_quantity) {
        
        $sql = "insert into products(id,name,price,quantity) values('".$product_id."','".$product_name."','".$product_price."','".$product_quantity."')";
-       $query = mysqli_query($this->conn,$sql);
+       $query = $this->conn->query($sql);
 
        if($query){
           return true;
@@ -35,9 +35,9 @@ class dbcon {
 
 	public function fetchall() {
 	    $sql = 'select *from products';
-		$query = mysqli_query($this->conn,$sql);
+		$query = $this->conn->query($sql);
         $result = array();
-		while( $row = mysqli_fetch_assoc($query))  {
+		while( $row = $this->conn->fetch_assoc($query))  {
 
           $result[] = $row;
 		}
@@ -49,10 +49,10 @@ class dbcon {
 
 	    $sql = 'SELECT * FROM products WHERE code = '.$code;   
 
-		$query = mysqli_query($this->conn,$sql);
+		$query = $this->conn->query($sql);
 
         $result = array();
-		while( $row = mysqli_fetch_assoc($query))  {
+		while( $row = $this->conn->fetch_assoc($query))  {
        //echo "<pre>";print_r($row);
           $result[] = $row;
 		}
@@ -66,9 +66,9 @@ class dbcon {
 	public function fetchById($product_id) {
 
 	    $sql = 'select *from products where id='.$product_id;
-		$query = mysqli_query($this->conn,$sql);
+		$query = $this->conn->query($sql);
         $result = array();
-		while( $row = mysqli_fetch_assoc($query))  {
+		while( $row = $this->conn->fetch_assoc($query))  {
 
           $result[] = $row;
 		}
@@ -89,10 +89,10 @@ class dbcon {
 
 	    $sql = 'SELECT * FROM products p inner join categories c ON p.category_id=c.category_id';   
 
-		$query = mysqli_query($this->conn,$sql);
+		$query = $this->conn->query($sql);
 
         $result = array();
-		while( $row = mysqli_fetch_assoc($query))  {
+		while( $row = $this->conn->fetch_assoc($query))  {
        //echo "<pre>";print_r($row);
           $result[] = $row;
 		}
@@ -113,10 +113,10 @@ class dbcon {
 	    $sql = "SELECT * FROM  products p  inner join categories c ON p.category_id=c.category_id
 	    where c.category_name = '$category_name'";	       
 
-		$query = mysqli_query($this->conn,$sql);
+		$query = $this->conn->query($sql);
 
         $result = array();
-		while( $row = mysqli_fetch_assoc($query))  {
+		while( $row = $this->conn->fetch_assoc($query))  {
        
           $result[] = $row;
 		}        
@@ -135,21 +135,21 @@ class dbcon {
 	public function getSlugActive($table,$slug) {
 		global $con;
 		$query = "select * from $table WHERE slug='$slug' and status='0' LIMIT 1";
-		return $query_run = mysqli_query($con,$query);
+		return $query_run = $this->conn->query($query);
 	}
 
     
 	public function getProductByCatetory($category_id) {
 		global $con;
 		$query = "select * from products WHERE category_id='$category_id' and status='0'";
-		return $query_run = mysqli_query($con,$query);
+		return $query_run = $this->conn->query($query);
 	}
 //--------------------------------------------------------------------------------------------
 
 	public function delete($product_id) {
        
        $sql = "drop table products where product_id = ".$product_id ;
-       $query = mysqli_query($this->conn,$sql);
+       $query = $this->conn->query($sql);
 
        if($query){
           return true;
@@ -158,8 +158,26 @@ class dbcon {
           return false; 
 	}	
 
+
+	public function fetchAllCategories() {  	   
+
+	    $sql = "SELECT * FROM categories";	       
+
+		$query = $this->conn->query($sql);
+
+        $result = array();
+		while( $row = mysqli_fetch_assoc($query))  {
+       
+          $result[] = $row;
+		}        
+
+		return $result;	
+
+	}	
+
+
 		public function __destruct() {
-		$this->conn = mysqli_close($this->conn);
+		$this->conn = $this->conn->close();
 	}		
 
 }

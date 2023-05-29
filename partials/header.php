@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Eflyer</title>
+      <title>Shopping Cart</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -52,6 +52,7 @@
                            <li><a href="#">New Releases</a></li>
                            <li><a href="#">Today's Deals</a></li>
                            <li><a href="#">Customer Service</a></li>
+                           <li><a href="login.php">Admin</a></li>
                         </ul>
                      </div>
                   </div>
@@ -65,7 +66,7 @@
             <div class="container">
                <div class="row">
                   <div class="col-sm-12">
-                     <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+                     <div class="logo"><a href="index.php"><img src="images/logo.png"></a></div>
                   </div>
                </div>
             </div>
@@ -78,19 +79,25 @@
                <div class="containt_main">
                   <div id="mySidenav" class="sidenav">
                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                     <a href="index.html">Home</a>
-                     <a href="fashion.html">Fashion</a>
-                     <a href="electronic.html">Electronic</a>
-                     <a href="jewellery.html">Jewellery</a>
+                     <a href="index.php">Home</a>
+                     <a href="fashion.php">Fashion</a>
+                     <a href="electronic.php">Electronic</a>
+                     <a href="jewellery.php">Jewellery</a>
                   </div>
                   <span class="toggle_icon" onclick="openNav()"><img src="images/toggle-icon.png"></span>
                   <div class="dropdown">
                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Category 
                      </button>
                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <!--
                         <a class="dropdown-item" href="#">Action</a>
                         <a class="dropdown-item" href="#">Another action</a>
                         <a class="dropdown-item" href="#">Something else here</a>
+                        -->
+                        <?php foreach($allCategories as $key => $category) {  ?>                        
+                        <option id="<?= $key; ?>">&nbsp;&nbsp;<?php echo $category; ?></option>
+                        <?php } ?>
+
                      </div>
                   </div>
                   <div class="main">
