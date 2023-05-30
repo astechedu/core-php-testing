@@ -2,24 +2,22 @@
   include 'databases/db.php';  
    
 
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+  if(isset($_POST['submit'])){
 
-if(isset($_POST['submit'])){
-
-   if($_SERVER['REQUEST_METHOD'] == 'POST'){
- 
-   $username = $_POST['username']?? 'No';
-   $city = $_POST['city'] ?? '';
+   $username = $_POST['username'] ?? '';
+   $password = $_POST['password'] ?? '';
 
    $username = validate($username);
-   $city = validate($city);
+   $password = validate($password);
 
-   $user = $db->authenticate($pdo,$username,$city);   
-   
+   $user = $db->authenticate($pdo,$username,$password);   
+   //print_r($user); 
    if(!empty($user) && count($user) > 0){
        session_start();
        $_SESSION['logged_in'] = true;
        $_SESSION['username'] =$username;
-       $_SESSION['city'] = $city;
+       $_SESSION['password'] = $password;
 
        header('location: /pages/home.php');
 
@@ -59,7 +57,7 @@ function validate($data){
                             <input type="text" name="username" class="form-control" placeholder="Email or UserName">
                         </div>
                         <div class="form-group">
-                            <input type="Password" name="city" class="form-control" placeholder="Password or City">
+                            <input type="password" name="password" class="form-control" placeholder="Password or City">
                             <a href="/auth/forget_password.php" class="forgot-password">Forgot Password?</a>
                         </div>
                         <!-- 

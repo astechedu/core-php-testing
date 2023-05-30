@@ -58,9 +58,10 @@ DatabaseMethods implements DatabaseInterface {
              
     } 
 
-    public function authenticate($pdo,$username,$city) 
+    public function authenticate($pdo,$username,$password) 
     { 
-        //$result = array();
+      echo "<pre>";print_r($pdo);
+         //$result = array();
         //$dsn = "mysql:host=$this->host;dbname=$this->db;charset=utf8mb4";
         $options = [
           PDO::ATTR_EMULATE_PREPARES   => false, // turn off emulation mode for "real" prepared statements
@@ -71,9 +72,9 @@ DatabaseMethods implements DatabaseInterface {
           try{
 
             //$pdo = new PDO($dsn, $this->uid, $this->password, $options);
-            $stmt = $pdo->prepare('select *from users where name = :username and city = :city');
+            $stmt = $pdo->prepare('select *from users where name = :username and password = :password');
             $stmt->bindParam(':username', $username);
-            $stmt->bindParam(':city', $city);
+            $stmt->bindParam(':password', $password);
             $stmt->execute();
             //echo "<pre>";print_r($stmt->fetchAll());
             return $stmt->fetchAll(PDO::FETCH_ASSOC);

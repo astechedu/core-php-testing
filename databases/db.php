@@ -2,7 +2,7 @@
     include 'MySQLDriver.php';
 
     $host="localhost";
-    $db="practice";
+    $db="auth";
     $uid="root";
     $password="";
 
