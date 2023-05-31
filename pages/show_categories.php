@@ -40,7 +40,6 @@ while($data=mysqli_fetch_array($result)){
 
 }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -50,21 +49,12 @@ while($data=mysqli_fetch_array($result)){
 </head>
 <body>
 
-
-<!-- Header -->
-<header id="header">
-<?php include '../partials/header.php'; ?>
-</header>
-
-<!-- Header -->
-<navbar id="navbar">
-<div class="container">
-<?php include '../partials/navbar.php'; ?>
-</div>
-
+<h1>Showing Categories & Subcategories: Using Recursion</h1>
 <?php echo showcategory(0) ?>
 
+
 <div class="container" data-aos="fade-up" data-aos-duration="3000">	
+
 	<div class="row">
 		<div class="col-lg-12">		
 		<table class="table">

@@ -13,7 +13,7 @@
       <a class="navbar-brand" href="#">PHP Auth</a>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/pages/show_categories.php">Home</a>
+          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
 
         <li class="nav-item">
@@ -33,7 +33,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/pages/show_categories.php">Show Categories</a>
+          <a class="nav-link" href="index.php">Show Categories</a>
         </li>
 
 
