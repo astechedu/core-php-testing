@@ -13,7 +13,7 @@
       <a class="navbar-brand" href="#">PHP Auth</a>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/pages/home.php">Home</a>
+          <a class="nav-link active" aria-current="page" href="/pages/show_categories.php">Home</a>
         </li>
 
         <li class="nav-item">
@@ -29,41 +29,21 @@
         </li>
 
         <li class="nav-item">
+          <a class="nav-link" href="/pages/add_categories.php">Add Categories</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/show_categories.php">Show Categories</a>
+        </li>
+
+
+        <li class="nav-item">
           <a class="nav-link" href="/auth/register.php">Register</a>
         </li>
-
-        <li class="nav-item">
-
-        <?php if(!isset($_SESSION['logged_in'])) { ?>          
-          <a class="nav-link" href="index.php">login</a>
-         <?php }else{ ?>
-          <a class="nav-link" href="/auth/logout.php">logout</a>
-         <?php } ?>
-        </li>      
-          
-        
-        
-        
-        <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) { ?>
-        <li class="nav-item">
-          <a class="nav-link">Profile:
-               <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
-                  echo "<strong>".$_SESSION['username']."</strong>";
-               } ?>
-          </a>
-        </li>
-       <?php } ?>
-
+  
       </ul>
       </div>
 
-      <!--
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-  	  -->
-
     </div>
-  </div>
+
 </nav>

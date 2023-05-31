@@ -1,9 +1,46 @@
 <?php
-session_start();
-  include '../databases/db.php';  
+//session_start();
+  //include '../databases/db.php';  
        //$data = $db->select($pdo);
        //echo "<pre>";print_r($data);
         //print_r($db->authenticate($pdo,'ajay','dehradun'));
+
+
+
+//Database 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db='cats';
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password,$db);
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+//echo "Connected successfully";
+
+
+function showcategory($parent_id){
+
+$sql = "select * from categories where parent_id='".$parent_id."'";
+$result = mysqli_query($GLOBALS['conn'],$sql);
+$output="<ul>\n";
+
+while($data=mysqli_fetch_array($result)){
+  $output .="<li>\n".$data['category_name'];
+  $output .= showcategory($data['id']);
+  $output .="</li>";
+}
+
+  $output .="</ul>";
+  return $output;
+
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +62,7 @@ session_start();
 <?php include '../partials/navbar.php'; ?>
 </div>
 
+<?php echo showcategory(0) ?>
 
 <div class="container" data-aos="fade-up" data-aos-duration="3000">	
 	<div class="row">
@@ -39,9 +77,7 @@ session_start();
 		      <th scope="col">Email</th>
 		      <th scope="col">Created</th>
 		      <th scope="col">Updated</th>
-		      <?php if(isset($_SESSION['logged_in'])) { ?>
-		      <th scope="col">Actions</th>
-		      <?php } ?>
+
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -53,14 +89,7 @@ session_start();
 		      <td><?= $user['city'] ?></td>
 		      <td><?= $user['email'] ?></td>
 		      <td><?= $user['created'] ?></td>
-		      <td><?= $user['updated'] ?></td>
-		      <?php if(isset($_SESSION['logged_in'])) { ?>
-		      <td scope="col">
-		      	<a href="#" class="btn btn-info">Edit</a>
-		      	<a href="#" class="btn btn-danger">Remove</a>
-		      	<a href="#" class="btn btn-success">View</a>
-		      </td>
-		      <?php } ?>		      
+		      <td><?= $user['updated'] ?></td>			      
 		    </tr>
 	        <?php } ?>        
 		  </tbody>
