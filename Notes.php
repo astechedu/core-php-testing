@@ -1,8 +1,5 @@
 <?php
-//
-
-
-
+	
 //1. Categories & Subcategories are in Same Table: Check Notes.php file about cat table
 //Calling recursion function
 echo showcategory(0)
@@ -25,5 +22,7 @@ while($data=mysqli_fetch_array($result)){
 
 }
 
+
 //-----------------------------------------------------------------------
+
 ?>
