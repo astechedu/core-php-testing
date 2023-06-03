@@ -8,7 +8,7 @@
       <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-         <a class="navbar-brand" href="#">PHP Auth</a>
+         <a class="navbar-brand" href="#">PHP Categories & Subcategories</a>
          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
                <a class="nav-link active" href="index.php">Home</a>
@@ -23,7 +23,7 @@
                <a class="nav-link" href="#">contact</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="/pages/add_categories.php">Add Categories</a>
+               
             </li>
             <li class="nav-item">
                <a class="nav-link" href="index.php">Show Categories</a>

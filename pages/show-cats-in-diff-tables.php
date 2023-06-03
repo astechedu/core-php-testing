@@ -49,7 +49,7 @@ while($data=mysqli_fetch_array($result)){
    </head>
    <body>
       <h1>Showing Categories & Subcategories: Using Recursion</h1>
-      <?php echo showcategory(0) ?>
+      <?php //echo showcategory(0) ?>
       
 
       <div class="container">
@@ -103,21 +103,78 @@ function categoryTree($parent_id = 0, $sub_mark = ''){
     }
 }
 
-/////////////////
+/////////////////  
 
 ?>
 
 
 <select >
-    <?php categoryTree(0); ?>
+    <?php //categoryTree(0); ?>
 </select>
-
-
 
 
    </body>
 </html>
-<!-- Footer -->
-<footer id="footer">
-   <?php include '../partials/footer.php'; ?>
-</footer>
+
+
+<!------ Add Category ------>
+
+
+<?php
+   //Database 
+   $servername = "localhost";
+   $username = "root";
+   $password = "";
+   $db = 'cats';
+   
+   // Create connection
+   $conn = mysqli_connect($servername, $username, $password, $db);
+   
+   // Check connection
+   if (!$conn) {
+     die("Connection failed: " . mysqli_connect_error());
+   }
+   //echo "Connected successfully";
+      
+   //Create Parent Category
+   if(isset($_POST['submit']) && $_POST['submit'] != ''){
+   
+   $cat_name = $_POST['cat_name'];
+   $id = $_POST['id'];
+     $sql ="insert into categories(id,category_name)values('".$id."','".$cat_name."'
+     )";
+   
+     $result = mysqli_query($conn,$sql);
+     if($result){
+        echo "Inserted";
+     }
+   }
+   
+   //Video Cats and Sub cats
+   //https://youtu.be/Jrsh039x5do?t=694   
+   ?> 
+
+
+<h1>Add Parent Categories</h1>
+<div class="container">
+   <div class="row">
+      <div class="col-lg-6">
+         <form method="post" action="">
+            <select name="id"> 
+               <option>Select </option>
+               <option value="0">Create Parent Category</option>
+               <?php 
+                  $sqldata="select * from categories";
+                  $res = mysqli_query($conn,$sqldata);
+                  while($cat = mysqli_fetch_array($res)){ ?>
+               <option value="<?= $cat['id'] ?>"><?= $cat['category_name'] ?></option>
+               <?php } ?>
+            </select>
+            <input type="text" name="cat_name" value="" class="form-control" placeholder="Add Category">
+            <input type="submit" name="submit" value="Add Category" class="btn btn-info form-control">
+         </form>
+      </div>
+   </div>
+</div>
+<?php mysqli_close($conn);?>
+

@@ -1,11 +1,33 @@
 <?php
+//PHP OPCache
+
+opcache.enable=1
+opcache.enable_cli=1
+opcache.memory_consumption=256
+opcache.validate_timestamps=1
+opcache.revalidate_freq=0
+opcache.interned_strings_buffer=18
+opcache.max_accelerated_files=4000
+opcache.fast_shutdown=1
 
 
 // Keys: 
   
   //1. Categories and Subcategories in a Single Table
   //2. Categories and Subcategories in Diff Tables
+  
+  // Multi level Categories
 
+  // Blog Tables
+
+  //Good Example : Using with function  
+  //https://www.truecodex.com/course/core-php/get-category-and-subcategory-in-php
+
+
+// Categories and Subcategories in diff tables 
+// https://codingstatus.com/how-to-create-category-and-subcategory-in-php/
+
+//Database Functions: 
 
 
 //----------------------------------------------------------------------------------------------------
@@ -550,6 +572,181 @@ $subcatData=$cat['subcategories'];
 
 
 
+<!------  Multi level Categories (Menus) ------->
+
+Video:
+https://youtu.be/XCj6e9cshGc?t=135
+
+Categories Table: 
+
+create table categories (
+  id(11) int not null auto_increment,
+  title varchar(50),
+  parent_id int(11) NULL,
+  page varchar(45) NULL,
+  sort_order tinyint(4),
+  primary key (id)
+);
+
+
+<?php
+
+//Functions:
+
+function connect(){
+  $connection = mysqli_connect('localhost','root','','cats');
+  if(!$connection){
+     die('Failed to connect DB');
+  }
+  return $connction;
+}
+
+
+function show_menu(){
+  $connection = connect();
+  $menu = '';
+  $menu .= generate_multilevel_menus($connection);  
+}
+
+
+function generate_mulitlevel_menus($connection, $parent_id=NULL){
+  $sql = "";
+  if(is_null($parent_id)){
+     $sql = "SELECT * FROM 'menus' WHERE parent_id IS NULL";
+  }
+  else{
+    $sql = "SELECT * FROM menus WHERE parent_id=$parent_id";
+  }
+  $result = mysqli_query($connection, $sql);
+  while($row = mysqli_fetch_assoc($result)){
+   if($row['page']){
+     $menu .= '<li><a href="'.$row['page'].'">'.$row['title'].'</a>';
+   }else{
+     $menu .= '<li><a href="#">'.$row['title'].'</a>';
+   }
+    $menu .= '<ul class="dropdown">'.generate_mulitlevel_menus($connection.$row['id']).'</ul>';
+    $menu .= '</li>';
+  }
+  return $menu;
+}
+
+//-----------------------------------------------------------------
+
+
+//Database Functions:
+
+
+//1.
+function conn() {
+  $conn = new mysqli('localhost','root','','cats');
+  if(!$conn){
+    die('Connection Failed'.$conn->connect_error);
+  }
+  return $conn;
+}
+
+
+
+
+
+
+// Blog Tables: 
+
+//https://codewithawa.com/posts/how-to-create-a-blog-in-php-and-mysql-database---db-design
+
+
+posts:
+
+
++----+-----------+--------------+------------+
+|     field      |     type     | specs      |
++----+-----------+--------------+------------+
+|  id            | INT(11)      |            |
+|  user_id       | INT(11)      |            |
+|  title         | VARCHAR(255) |            |
+|  slug          | VARCHAR(255) | UNIQUE     |
+|  views         | INT(11)      |            |
+|  image         | VARCHAR(255) |            |
+|  body          | TEXT         |            |
+|  published     | boolean      |            |
+|  created_at    | TIMESTAMP    |            |
+|  updated_at    | TIMESTAMP    |            |
++----------------+--------------+------------+
+
+
+users:
+
+
++----+-----------+------------------------+------------+
+|     field      |     type               | specs      |
++----+-----------+------------------------+------------+
+|  id            | INT(11)                |            |
+|  username      | VARCHAR(255)           | UNIQUE     |
+|  email         | VARCHAR(255)           | UNIQUE     |
+|  role          | ENUM("Admin","Author") |            |
+|  password      | VARCHAR(255)           |            |
+|  created_at    | TIMESTAMP              |            |
+|  updated_at    | TIMESTAMP              |            |
++----------------+--------------+---------+------------+
+
+
+Users:
+
+CREATE TABLE `users` (
+  `id` int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `role` enum('Author','Admin') DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+Posts:
+
+CREATE TABLE `posts` (
+ `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ `user_id` int(11) DEFAULT NULL,
+ `title` varchar(255) NOT NULL,
+ `slug` varchar(255) NOT NULL UNIQUE,
+ `views` int(11) NOT NULL DEFAULT '0',
+ `image` varchar(255) NOT NULL,
+ `body` text NOT NULL,
+ `published` tinyint(1) NOT NULL,
+ `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+
+
+Users:
+
+INSERT INTO `users` (`id`, `username`, `email`, `role`, `password`, `created_at`, `updated_at`) VALUES
+(1, 'Awa', 'info@codewithawa.com', 'Admin', 'mypassword', '2018-01-08 12:52:58', '2018-01-08 12:52:58')
+
+
+Posts:
+
+INSERT INTO `posts` (`id`, `user_id`, `title`, `slug`, `views`, `image`, `body`, `published`, `created_at`, `updated_at`) VALUES
+(1, 1, '5 Habits that can improve your life', '5-habits-that-can-improve-your-life', 0, 'banner.jpg', 'Read every day', 1, '2018-02-03 07:58:02', '2018-02-01 19:14:31'),
+(2, 1, 'Second post on LifeBlog', 'second-post-on-lifeblog', 0, 'banner.jpg', 'This is the body of the second post on this site', 0, '2018-02-02 11:40:14', '2018-02-01 13:04:36')
+
+
+
+  session_start();
+  // connect to database
+  $conn = mysqli_connect("localhost", "root", "", "complete-blog-php");
+
+  if (!$conn) {
+    die("Error connecting to database: " . mysqli_connect_error());
+  }
+    // define global constants
+  define ('ROOT_PATH', realpath(dirname(__FILE__)));
+  define('BASE_URL', 'http://localhost/complete-blog-php/');
+
+  
 
 
 
@@ -557,6 +754,34 @@ $subcatData=$cat['subcategories'];
 
 
 
+
+
+  //Categories and Subcategories in diff tables 
+//https://codingstatus.com/how-to-create-category-and-subcategory-in-php/
+
+
+Table Name – categories:
+
+CREATE TABLE `categories` (
+  `id` int(10) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `parent_id` int(10) DEFAULT 0,
+  `category_name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+Table Name – subcategories:
+
+CREATE TABLE `subcategories` (
+  `id` int(10) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `parent_id` int(10) DEFAULT 0,
+  `subcategory_name` varchar(255) DEFAULT NULL
+)
+
+
+
+
+?>
 
 
 

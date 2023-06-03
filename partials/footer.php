@@ -62,7 +62,7 @@
                            <a href="#!" class="text-white">Link 4</a>
                         </li>
                      </ul>
-                  </div>
+                  </div>   
                   <!--Grid column-->
                </div>
                <!--Grid row-->
