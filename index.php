@@ -17,7 +17,7 @@
 <!-- Content -->
 <section>
 <div class="container">
-<?php include 'pages/index.php'; ?>
+<?php include 'pages/file_upload.php'; ?>
 </div>
 </section>
 

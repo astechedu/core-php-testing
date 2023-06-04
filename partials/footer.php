@@ -11,7 +11,7 @@
   </body>
 </html>
 
-<div class="container">
+<div class="container fixed-bottom">
 
   <div class="row">   
 <section class="">
