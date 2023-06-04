@@ -2,6 +2,7 @@
 
 include "../databases/db.php";
 
+//Pagination
 if (isset($_GET["page"])) {
     $page = $_GET["page"];
 } else {
@@ -14,6 +15,18 @@ $total_page = ceil($total_records / $limit);
 $offset = ($page - 1) * $limit;
 
 $pagi = $db->pagination($pdo, $offset, $limit);
+
+
+//Searching
+ $users = array();
+ if(isset($_POST['submit'])){
+
+      $search = $_POST['search']??'';
+      $users = $db->search($pdo, $search);  
+         //echo "<pre>";print_r($users);
+ }else{
+ $users = $db->search($pdo, $search=null);   
+ }
 
 ?>
 
@@ -41,18 +54,7 @@ $pagi = $db->pagination($pdo, $offset, $limit);
   </div>
 </form>
 
-<?php
 
- $users = array();
- if(isset($_POST['submit'])){
-
-      $search = $_POST['search']??'';
-      $users[] = $db->search($pdo, $search);
-      //echo "<pre>";print_r($users);
- }
-
-
-?>
       <div class="container">
          <div class="row">
             <div class="col-lg-12">
@@ -69,7 +71,7 @@ $pagi = $db->pagination($pdo, $offset, $limit);
                      </tr>
                   </thead>
                   <tbody>
-                     <?php foreach($pagi as $user) { ?>
+                     <?php foreach($users as $user) { ?>
                      <tr>
                         <td><?= $user['id'] ?></td>
                         <td><?= $user['name'] ?></td>
@@ -90,7 +92,7 @@ $pagi = $db->pagination($pdo, $offset, $limit);
             </div>
          </div>
       
-
+<!--
 <nav aria-label="Page navigation example">
 	<ul class="pagination">		
 		<?php if ($page > 1) { ?>
@@ -109,6 +111,8 @@ $pagi = $db->pagination($pdo, $offset, $limit);
         <?php } ?>
 	</ul>	
 </nav>
+
+-->
 
 </div>
 

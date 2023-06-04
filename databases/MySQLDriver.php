@@ -148,6 +148,7 @@ class MySQLDriver extends DatabaseMethods implements DatabaseInterface
             $stmt->execute([':keywords' => '%'.$keywords.'%']);
             //echo "<pre>";print_r($stmt->fetchAll());
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
         } catch (PDOException $e) {
             return $e->getMessage();
         }
