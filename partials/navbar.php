@@ -10,14 +10,14 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#">PHP Auth</a>
+      <a class="navbar-brand" href="#">PHP Searching</a>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/pages/home.php">Home</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="/searching/search_01.php">Search01</a>
         </li>
 
         <li class="nav-item">

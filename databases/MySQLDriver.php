@@ -49,6 +49,7 @@ class MySQLDriver extends DatabaseMethods implements DatabaseInterface
         }
     }
 
+
     public function authenticate($pdo, $username, $password)
     {
         echo "<pre>";
@@ -138,5 +139,21 @@ class MySQLDriver extends DatabaseMethods implements DatabaseInterface
             return $e->getMessage();
         }
     }
+
+    public function search($pdo,$keywords)
+    {  
+        try {
+            //$pdo = new PDO($dsn, $this->uid, $this->password, $options);
+            $stmt = $pdo->prepare('SELECT * FROM users WHERE name LIKE :keywords');
+            $stmt->execute([':keywords' => '%'.$keywords.'%']);
+            //echo "<pre>";print_r($stmt->fetchAll());
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
+
 }
+
 ?>

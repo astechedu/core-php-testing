@@ -22,10 +22,37 @@ $pagi = $db->pagination($pdo, $offset, $limit);
 <header id="header">
 <?php include '../partials/header.php'; ?>
 </header>
+
 <!-- Navbar -->
-<nav id="navbar">
+<div id="navbar">
 <?php include '../partials/navbar.php'; ?>
-</nav>
+</div>
+
+  <!-- Searching -->
+  <form action="/searching/search_01.php" method="post">
+  <div class="input-group col-md-3">
+    <div class="form-outline">
+      <input type="search" id="form1" name="search" class="form-control" placeholder="Search" />
+
+    </div>
+    <button type="submit" name="submit" class="btn btn-primary">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+</form>
+
+<?php
+
+ $users = array();
+ if(isset($_POST['submit'])){
+
+      $search = $_POST['search']??'';
+      $users[] = $db->search($pdo, $search);
+      //echo "<pre>";print_r($users);
+ }
+
+
+?>
       <div class="container">
          <div class="row">
             <div class="col-lg-12">
@@ -62,30 +89,30 @@ $pagi = $db->pagination($pdo, $offset, $limit);
                </table>
             </div>
          </div>
-          
+      
 
-<nav aria-label="Page navigation example" class="">
-   <ul class="pagination">    
-      <?php if ($page > 1) { ?>
-      <li class="page-item"><a class="page-link" href="home.php?page=<?= ($page - 1) ?>">Previous</a></li>
-      <?php } ?>
+<nav aria-label="Page navigation example">
+	<ul class="pagination">		
+		<?php if ($page > 1) { ?>
+		<li class="page-item"><a class="page-link" href="?page=<?= ($page - 1) ?>">Previous</a></li>
+		<?php } ?>
 <?php for ($i = 1; $i < $total_page; $i++) {
-    echo '            
-       <li class="page-item"><a class="page-link" href="?page=' .
+    echo '		  	    
+	    <li class="page-item"><a class="page-link" href="?page=' .
         $i .
         '">' .
         $i .
-        '</a></li>           
-      ';
+        '</a></li>	    	  
+	   ';
 } ?>      <?php if ($total_page > $page) { ?>
         <li class="page-item"><a class="page-link" href="?page=<?= ($page + 1) ?>">Next</a></li>
         <?php } ?>
-   </ul> 
+	</ul>	
 </nav>
-</div>
 
+</div>
 
 <!-- Footer -->
 <footer id="footer" class="fixed-bottom">
-<?php include '../partials/footer.php'; ?>
+<?php //include '../partials/footer.php'; ?>
 </footer>
