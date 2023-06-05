@@ -1,21 +1,20 @@
-
 <!-- Header -->
-<header id="header">
-<?php include '../partials/header.php'; ?>
-</header>
+<?php include 'partials/header.php'; ?>
 
-<!-- Header -->
-<navbar id="navbar">
-<div class="container">
-<?php include '../partials/navbar.php'; ?>
-</div>
-</navbar>
+    <div class="wrapper">
+      
+<!-- Main Header -->
+<?php include 'partials/main_header.php'; ?>
 
 
+<!-- Left side column. contains the logo and sidebar -->
+<!-- Main Sidebar -->
+<?php include 'partials/main_sidebar.php'; ?>
+
+
+<!-- Right side column. Contains the navbar and content of the page -->
+<?php include 'partials/content.php'; ?>
 
 
 <!-- Footer -->
-<footer id="footer">
-<?php include '../partials/footer.php'; ?>
-</footer>
-
+<?php include 'partials/footer.php'; ?>

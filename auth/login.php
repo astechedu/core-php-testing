@@ -46,7 +46,7 @@ function validate($data){
 
 ?>
 <section class="body">
-    <div class="container" data-aos="fade-up" data-aos-duration="3000">
+    <div class="container">
         <div class="login-box">
             <div class="row">
                 <div class="col-sm-6">
