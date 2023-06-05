@@ -11,13 +11,14 @@
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <a class="navbar-brand" href="#">File Upload</a>
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">  
+
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/pages/home.php">Home</a>
+          <a class="nav-link" href="../pages/file_upload.php">Single File Upload</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="../pages/multi_files_upload.php">Multi File Upload</a>
         </li>
 
         <li class="nav-item">
@@ -25,41 +26,8 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">contact</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/auth/register.php">Register</a>
-        </li>
-
-        <li class="nav-item">
-
-        <?php if (!isset($_SESSION["logged_in"])) { ?>          
-          <a class="nav-link" href="index.php">login</a>
-         <?php } else { ?>
-          <a class="nav-link" href="/auth/logout.php">logout</a>
-         <?php } ?>
-        </li>      
-          
-        
-        
-        
-        <?php if (
-            isset($_SESSION["logged_in"]) &&
-            $_SESSION["logged_in"] == true
-        ) { ?>
-        <li class="nav-item">
-          <a class="nav-link">Profile:
-               <?php if (
-                   isset($_SESSION["logged_in"]) &&
-                   $_SESSION["logged_in"] == true
-               ) {
-                   echo "<strong>" . $_SESSION["username"] . "</strong>";
-               } ?>
-          </a>
-        </li>
-       <?php } ?>
-
+          <a class="nav-link" href="register.php">contact</a>
+        </li>             
       </ul>
       </div>
 

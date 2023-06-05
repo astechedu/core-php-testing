@@ -2,7 +2,7 @@
 
 if(isset($_POST['submit'])) {  
 
-$uploaddir = 'images/';
+$uploaddir = '../images/';
 $uploadfile = $uploaddir.time().'_'.basename($_FILES['file']['name']);
 //echo '<pre>';
 if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
@@ -16,6 +16,16 @@ if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
 }
 
 ?>
+
+      <!-- Header -->
+      <header id="header">
+         <?php include '../partials/header.php'; ?>
+      </header>
+      <!-- Header -->
+      <navbar id="navbar">
+      <div class="container">
+         <?php include '../partials/navbar.php'; ?>
+      </div>
 
 <div class="container">
 	<div class="row">
@@ -32,3 +42,8 @@ if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
 		</div>
 	</div>
 </div>
+
+<!-- Footer -->
+<footer id="footer">
+   <?php include '../partials/footer.php'; ?>
+</footer>
