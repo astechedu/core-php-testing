@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
        $_SESSION['username'] = $username;
        $_SESSION['password'] = $password;
 
-       header('location: /pages/home.php');
+       header('location: /admin/index.php');
 
    }else{
 

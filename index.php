@@ -1,7 +1,5 @@
 <?php
 
-
-
 /*
 $request = $_SERVER['REQUEST_URI'];
 
@@ -39,9 +37,6 @@ switch ($request) {
 </div>
 </navbar>
 
-
-
-
 <?php 
 /*
 echo  $_SERVER['HTTP'];
@@ -76,7 +71,6 @@ $dir = pathinfo($_SERVER['PHP_SELF']);
 <?php include 'auth/login.php'; ?>
 </div>
 </section>
-
 
 
 <!-- Footer -->
