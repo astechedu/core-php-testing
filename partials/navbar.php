@@ -17,7 +17,7 @@
                <a class="nav-link" href="#">Link</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="#">about</a>
+               <a class="nav-link" href="/pages/multi-level-cats.php">multi-level-cats</a>
             </li>
             <li class="nav-item">
                <a class="nav-link" href="#">contact</a>
