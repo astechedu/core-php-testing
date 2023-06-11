@@ -6,8 +6,8 @@ if(isset($_SESSION['logged_in'])){
    header('location: ../pages/home.php');
 }
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-  if(isset($_POST['submit'])){
+if(isset($_POST['submit'])){
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){  
 
    $username = $_POST['username'] ?? '';
    $password = $_POST['password'] ?? '';

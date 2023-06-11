@@ -1,3 +1,7 @@
+<?php
+  //define('base_url', $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
+    define('base_url', $_SERVER['SERVER_NAME']);  
+?>
 <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
@@ -5,7 +9,7 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+              <img src="/images/astechedu.png" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
               <p>Tom Mart</p>
@@ -27,21 +31,22 @@
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
             <li class="active treeview">
-              <a href="#">
+              <a href="/admin/index.php">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
+              <!--
               <ul class="treeview-menu">
                 <li class="active"><a href="index.php"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
                 <li><a href="index2.php"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-              </ul>
+              </ul>-->
             </li>
-
+<!--
             <li>
               <a href="pages/widgets.html">
                 <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">new</small>
               </a>
             </li>
-            
+-->
             <!--
             <li class="treeview">
               <a href="#">
@@ -73,25 +78,20 @@
             </li>
             -->
             <li class="treeview">
-              <a href="#">
+              <a href="">
                 <i class="fa fa-edit"></i> <span>Forms</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-                <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-                <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
-              </ul>
+                <li><a href="/add_user.php"><i class="fa fa-circle-o"></i>Add User</a></li>
+             </ul>
             </li>
             <li class="treeview">
-              <a href="#">
+              <a href="partials/table_data.php">
                 <i class="fa fa-table"></i> <span>Tables</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
-              <ul class="treeview-menu">
-                <li><a href="pages/tables/simple.php"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-                <li><a href="pages/tables/data.php"><i class="fa fa-circle-o"></i> Data tables</a></li>
-              </ul>
+             
             </li>
 
             <!--

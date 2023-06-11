@@ -1,3 +1,10 @@
+<?php
+	//define('base_url', $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
+   define('base_url', $_SERVER['SERVER_NAME']);
+  
+?>
+
+
 <!-- Header -->
 <?php include 'partials/header.php'; ?>
 
