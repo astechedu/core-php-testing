@@ -8,52 +8,73 @@
 
 //String Functions 
 
-// str_repeat(), $ar = range('A','Z');
+//str_repeat(), $ar = range('A','Z');
 //str_repeat(string,repeat)
 //$str = "-";               //Or $str = 'a', $str = '*', $str = "This is my bag";
 //$repeat = 10;
 //echo str_repeat($str,$repeat);
 
+
+
+
 //strlen()
-//$str= "This is a cat";
-//$strlen = strlen($str);
-//echo "StrLen: ".$strlen;
+/*
+echo $str="This is a cat.";
+echo "<br/>";
+echo "Length: ".strlen($str);
+*/
+
 
 //ucfirst()
-//echo $str;
-//echo "<br/>";
-//$newstr = ucfirst($str);
-//echo $newstr;
+/*
+echo $str="this is a cat.";
+echo "<br/>";
+echo ucfirst($str);
+*/
+
 
 //lcfirst()
-//$newstrl = lcfirst($str);
-//echo $newstrl;
+/*
+echo $str="This is a cat.";
+echo "<br/>";
+echo lcfirst($str);
+*/
 
 //strtolower()
-//echo $str="THIS IS A CAT";
-//echo "<br/>";
-///$strtolower = strtolower($str);
-//echo $strtolower;
+/*
+echo $str = "THIS IS A CAT.";
+echo "<br/>";
+echo strtolower($str);
+*/
 
 
 //strtoupper()
-///echo $str = "this is a cat";
-//echo "<br/>";
-//$strtoupper = strtoupper($str);
-//echo $strtoupper;
+/*
+echo $str ="this is cat.";
+echo "<br/>";
+echo strtoupper($str);
+*/
 
 
 //str_word_count()
-echo $str = "This is a cat";
+/*
+echo $str="This is a cat.";
 echo "<br/>";
-//echo "Words :".str_word_count($str);
-
-
+echo "No. of words: ".str_word_count($str);
+*/
 
 
 //strrev()
+echo $str="This is a cat.";
+echo "<br/>";
+echo strrev($str);
 
-echo "String Reversed: ".strrev($str);
+
+
+
+
+
+
 
 
 ?>
