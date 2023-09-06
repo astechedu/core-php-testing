@@ -1,7 +1,6 @@
 <?php
 //Done: intdiv(),pow(),pi()max(),min(),sqrt(),round(),floor(),ceil(),abs()
 
-//Today:
 //strlen(),ucfirst(),lcfirst(),strtolower(),strtoupper(),str_word_count(),strrev(),
 //str_replace(),str_repeat(),strpos(),ctype_upper(),mb_strtolower()
 
@@ -14,9 +13,6 @@
 //$repeat = 10;
 //echo str_repeat($str,$repeat);
 
-
-
-
 //strlen()
 /*
 echo $str="This is a cat.";
@@ -24,14 +20,12 @@ echo "<br/>";
 echo "Length: ".strlen($str);
 */
 
-
 //ucfirst()
 /*
 echo $str="this is a cat.";
 echo "<br/>";
 echo ucfirst($str);
 */
-
 
 //lcfirst()
 /*
@@ -47,14 +41,12 @@ echo "<br/>";
 echo strtolower($str);
 */
 
-
 //strtoupper()
 /*
 echo $str ="this is cat.";
 echo "<br/>";
 echo strtoupper($str);
 */
-
 
 //str_word_count()
 /*
@@ -63,11 +55,27 @@ echo "<br/>";
 echo "No. of words: ".str_word_count($str);
 */
 
-
 //strrev()
+/*
 echo $str="This is a cat.";
 echo "<br/>";
 echo strrev($str);
+*/
+
+//Today: 
+
+//str_replace()
+//str_repeat()
+//ctype_upper()
+//mb_strtolower();
+//strpos
+
+
+
+
+
+
+
 
 
 
