@@ -62,26 +62,51 @@ echo "<br/>";
 echo strrev($str);
 */
 
+
+
+
+
 //Today: 
 
-//str_replace()
 //str_repeat()
+/*
+$str="-";
+echo "<br/>";
+echo "<<".str_repeat($str,10).">>";
+*/
+
 //ctype_upper()
-//mb_strtolower();
-//strpos
+//echo $str="bag";
+//echo "<br/>";
+
+/*
+if(ctype_upper($str)){
+  echo "Word has all uppercase characters";
+}else{
+  echo "Word does not have all uppercase characters";
+}
+*/
+
+/*
+ $strarr=array("123amit","IS","a","CAT");
+echo "<br/>";
+
+foreach($strarr as $ar){
+   if(ctype_upper($ar)){
+      echo "<strong>$ar</strong> has all uppercase characters.";
+      echo "<br/>";
+   }else{
+      echo "<strong>$ar</strong> does not have all uppercase characters.";
+      echo  "<br/>";
+   }
+}
+*/
 
 
-
-
-
-
-
-
-
-
-
-
-
+//Pending:
+//mb_strtolower();  //string mb_strtolower(str $string, str $encoding)
+//strpos   //strpos(string,find,start) 
+//str_replace()  //str_replace ( $search, $replace, $string, $count) 
 
 
 
