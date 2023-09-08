@@ -62,6 +62,12 @@ echo "<br/>";
 echo strrev($str);
 */
 
+
+
+
+
+//Today: 
+
 //str_repeat()
 /*
 $str="-";
@@ -96,21 +102,24 @@ foreach($strarr as $ar){
 }
 */
 
-//mb_strtolower();   //string mb_strtolower(str $string, str $encoding)
-//mb_strlen(),
-//mb_strtoupper();
 
-//echo $str = "SĆHOOŁ";   //Polish Characters
-//echo $str = "aąbcćdeę";
-//echo "<br/>";
-//echo "StrToLower: ".mb_strtolower($str);
-//echo "StrToUpper: ".mb_strtoupper($str);
-//echo "<br/>";
-//echo "Length: ".mb_strlen($str);
+//Today:
+
+//mb_strtolower();             //string mb_strtolower(str $string, str $encoding)
+//mb_strlen(), mb_strtoupper();
+
+//strpos             //strpos(string,find,start) 
+//str_replace()      //str_replace ( $search, $replace, $string, $count) 
+$str="This is first string.";
+$search=array('is','f');
+$replace="are";
+echo str_replace($search,$replace,$str,$count);
+echo "<br>".$count;
 
 
-//Today: 
-//Coming Soon
+
+
+
 
 
 
