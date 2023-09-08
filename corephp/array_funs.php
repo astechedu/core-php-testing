@@ -31,18 +31,26 @@ echo "<pre>";print_r($users);
 echo "No of elements: ".array_push($users,"rekha");
 echo "<pre>";print_r($users);
 */
-//array_pop()
 
+//array_pop()
+/*
+echo "<pre>";print_r($users);
+echo "Removed Element: ".arrray_pop($users);
+echo "<pre>";print_r($users);
+*/
 
 //array_shift()
+/*
 echo "<pre>";print_r($users);
-echo "Added Element: ".array_unshift($users,"sonu","kumar");
+echo "Removed Element: ".array_shift($users);
 echo "<pre>";print_r($users);
-
+*/
 //array_unshift()
-
-
-
+/*
+echo "<pre>";print_r($users);
+echo "Added Element: ".array_unshift($users,"sonu");
+echo "<pre>";print_r($users);
+*/
 
 
 
