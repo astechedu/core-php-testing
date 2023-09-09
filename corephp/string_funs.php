@@ -1,8 +1,6 @@
 <?php
-//Done: intdiv(),pow(),pi()max(),min(),sqrt(),round(),floor(),ceil(),abs()
-
-//strlen(),ucfirst(),lcfirst(),strtolower(),strtoupper(),str_word_count(),strrev(),
-//str_replace(),str_repeat(),strpos(),ctype_upper(),mb_strtolower()
+//Done: intdiv(),pow(),pi()max(),min(),sqrt(),round(),floor(),ceil(),abs(),strlen(),ucfirst(),lcfirst(),strtolower(),strtoupper(),
+//str_word_count(),strrev(),str_replace(),str_repeat(),strpos(),ctype_upper(),mb_strtolower(),mb_strtoupper(),mb_strlen(),
 
 
 //String Functions 
