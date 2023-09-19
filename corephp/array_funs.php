@@ -37,6 +37,30 @@ $ar4 = ["b"=>"ramesh", "e"=>"bhanu",30];
 //Today:
 
 
+$arr1 = array("a","b","c","d","a","b","b","b");
+$arr2 = array("a"=>"aman","b"=>"bhanu","c"=>"city","d"=>"dehradun");
+$arr3 = array("1"=>"apple","2"=>"banana","3"=>"grapes");
+$arr4 = [2,4,10];
+
+//print_r(array_count_values($arr));
+//print_r(count($arr));
+//print_r(sizeof($arr));
+//array_product();
+
+
+//$arrArr = array_count_values($arr1);
+//print_r($arrArr);
+
+//$arr = count($arr3);
+//echo $arr;
+
+//$arr = sizeof($arr2);
+//echo $arr;
+
+//array_product()
+//echo array_product($arr4);
+
+
 
 //echo "\n ----------------------------------------------------- \n";
 
