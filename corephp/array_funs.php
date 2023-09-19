@@ -1,8 +1,18 @@
 <?php
-//Done:array_push(),array_pop(),array_shift(),array_unshift(),array_unique(),array_combine(),is_array(),in_array()
+//Done: 
+//array_push(),array_pop(),array_shift(),array_unshift(),array_unique(),array_combine(),is_array(),in_array()
+//array_fill(),array_fill_keys(),array_keys(), array_key_first(), array_key_last(), array_key_exists(), key_exists(), array_flip(),array_merge(),array_merge_recursive(),array_combine(),array_unique(),
 
-//Array Function: array_values(),array_unique(),array_count_values(),array_merge(),array_merge_recursive(),array_combine(),array_chunk(),
-//                array_column(),array_key(),array_key_exist(),array_change_key_case(),array_diff(),array_diff_uassoc(),array_diff_assoc(),array_diff_keys(),array_diff_ukey(),array_fill(),array_fill_keys(),array_filter(),array_flip(),array_intersect_assoc(),array_intersect_key(),array_intersect(),array_key_exists(),array_keys(),array_key_recursive(),array_multisort(),array_pad(),array_product(),array_rand(),array_reduce(),array_replace_recursive(),array_replace(),array_reverse(),array_search(),array_slice(),array_splice(),array_sum(),array_udiff_assoc(),array_udiff(),array_intersect_assoc(),array_intersect_uassoc(),array_uintersect(),array_walk(),array_walk_recursive(),compact(),count(),current(),end(),extract(),in_array(),is_array(),key(),next(),ksort(),rsort(),list(),natsort(),natcasesort(),pos(),prev(),range(),reset(),shuffle(),sizeof(),sort(),uasort(),uksort(),usort(),each()
+
+//Array Function: 
+//array_values(),array_count_values(),array_chunk(),array_column(),array_change_key_case(),array_diff(),array_diff_uassoc(),
+//array_diff_assoc(),array_diff_keys(),array_diff_ukey(),array_fill(),array_fill_keys(),array_filter(),array_flip(),
+//array_intersect_assoc(),array_intersect_key(),array_intersect(),array_key_exists(),array_keys(),array_key_recursive(),
+//array_multisort(),array_pad(),array_product(),array_rand(),array_reduce(),array_replace_recursive(),array_replace(),
+//array_reverse(),array_search(),array_slice(),array_splice(),array_sum(),array_udiff_assoc(),array_udiff(),array_intersect_assoc(),
+//array_intersect_uassoc(),array_uintersect(),array_walk(),array_walk_recursive(),compact(),count(),current(),end(),extract(),
+//in_array(),is_array(),key(),next(),ksort(),rsort(),list(),natsort(),natcasesort(),pos(),prev(),range(),reset(),shuffle(),sizeof(),
+//sort(),uasort(),uksort(),usort(),each()
 
 
 //----> array Functions <----
@@ -25,6 +35,81 @@ $ar3 = ["a"=>"ram", "b"=>"geeta", "c"=>"santosh"];
 $ar4 = ["b"=>"ramesh", "e"=>"bhanu",30];
 
 //Today:
+
+
+
+//echo "\n ----------------------------------------------------- \n";
+
+//echo "array_keys(), array_key_first(), array_key_last(), array_key_exists(), key_exists(), array_flip()";
+
+
+//1. array_keys(),
+//2. array_key_first()
+//3. array_key_last()
+//4. array_key_exists()
+//5. array_flip()
+//Syntax: array_keys(array,value,strict);
+
+
+$products = ["name"=>"laptop", "qty"=>2, "price"=>30000];
+//print_r($products);
+
+//1. array_flip()
+//$newArr = array_flip($products);
+//print_r($newArr);
+
+//2. array_keys()
+//$newArr = array_keys($products);
+//print_r($newArr);
+
+//3. array_key_first()
+
+//$newArr = array_key_first($products);
+//print_r($newArr);
+
+//$newArr = array_key_last($products);
+//print_r($newArr);
+
+/*
+$newArr = array_key_exists("id", $products);
+$newArr = key_exists("id", $products);
+
+if($newArr){
+  echo "Key found";
+}else{
+  echo "Key not found";
+}
+*/
+
+
+//array_fill(), array_fill_keys();
+
+
+//1. array_fill()
+//$start=3;
+//$no=5;
+//$val="php";
+
+//$newArr = array_fill($start,$no,$val);
+
+//$newArr = array_fill(3,5,"php");
+
+
+//2. array_fill_keys()
+$arr = array("a","b","c","d");
+/*
+$val = "test";
+
+$newArr = array_fill_keys($arr,$val);
+
+echo "<pre>";
+print_r($newArr);
+echo "<pre/>";
+
+echo "\n";
+*/
+
+
 //array_merge()
 
 //$arr_merge = array_merge($ar3,$ar4);
@@ -42,24 +127,6 @@ echo "<pre>";
 print_r($arr_mer_rec);
 echo "</pre>";
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //is_array()
 
