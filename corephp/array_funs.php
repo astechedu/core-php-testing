@@ -1,7 +1,8 @@
 <?php
 //Done: 
 //array_push(),array_pop(),array_shift(),array_unshift(),array_unique(),array_combine(),is_array(),in_array()
-//array_fill(),array_fill_keys(),array_keys(), array_key_first(), array_key_last(), array_key_exists(), key_exists(), array_flip(),array_merge(),array_merge_recursive(),array_combine(),array_unique(),
+//array_fill(),array_fill_keys(),array_keys(), array_key_first(), array_key_last(), array_key_exists(), key_exists(), array_flip(),array_merge(),array_merge_recursive(),array_combine(),array_unique(),array_count_values(),count(),sizeof(),
+//array_product(),array_slice(),
 
 
 //Array Function: 
@@ -35,6 +36,33 @@ $ar3 = ["a"=>"ram", "b"=>"geeta", "c"=>"santosh"];
 $ar4 = ["b"=>"ramesh", "e"=>"bhanu",30];
 
 //Today:
+
+
+//1. array_slice()
+
+//Syntax: array_slice(array, start, length, preserve)
+
+//            -8  -7   -6  -5  -4  -3  -2  -1
+//             0   1   2   3   4   5   6   7
+$arr1 = array("a","b","c","d","a","b","b","b");
+
+$arr2 = array("a"=>"aman","b"=>"bhanu","c"=>"city","d"=>"dehradun");
+
+$arr3 = array("1"=>"apple","2"=>"banana","3"=>"grapes","4"=>"carrot");
+
+//       0 1 2 3  4  5
+$arr4 = [2,4,5,10,44,80];
+
+//print_r($arr3);
+
+//$newArr = array_slice($arr4,2,3);
+//print_r($newArr);
+
+//$newArr = array_slice($arr1,-5,4);
+//print_r($newArr);
+
+$newArr = array_slice($arr3,1,2,true);
+//print_r($newArr);
 
 
 $arr1 = array("a","b","c","d","a","b","b","b");
