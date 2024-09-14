@@ -48,7 +48,11 @@
     </div>
 
     <div class="d-flex justify-content-between py-4 my-4 border-top">
+<<<<<<< HEAD
       <p>© 20<?php echo date('y'); ?> AsTechEdu. All rights reserved.</p>
+=======
+      <p>© <?php echo date("Y");  ?> Company, Inc. All rights reserved.</p>
+>>>>>>> 0c91517ed34bee27faf99dd62b27f3581efb8cc2
       <ul class="list-unstyled d-flex">
         <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
         <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
